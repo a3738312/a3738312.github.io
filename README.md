@@ -28,11 +28,11 @@
 * 安卓Facebook分享需要base64图片或bitmap，可以在JS里处理图片(截图、拼图等)然后调用jsb.saveImageData()保存在本地，安卓根据路径读取图片直接以bitmap传入即可(会比较块)
 * Cocos Creator 生成的配置文件里，主Acticity的任务关联是空字符串，会导致其他的Actictiy独立于App显示在最近任务中，比如激励视频广告
 * **android:taskAffinity:**  
-    * 与 Activity 有着相似性的任务。从概念上讲，具有同一相似性的 Activity 归属同一任务（从用户的角度来看，则是归属同一“应用”）。任务的相似性由其根 Activity 的相似性确定。（可以用来制作小程序这样独立于app的任务）
-    * 相似性确定两点内容 — Activity 更改父项后的任务（请参阅 allowTaskReparenting 属性），以及通过 FLAG_ACTIVITY_NEW_TASK 标记启动 Activity 时，用于容纳该 Activity 的任务。
-    * 默认情况下，应用中的所有 Activity 都具有同一相似性。您可以设置该属性，以不同方式将其分组，甚至可以在同一任务内放置不同应用中定义的 Activity。如要指定 Activity 与任何任务均无相似性，请将其设置为空字符串。(若主Activity设置为空字符串则所有任务都没有相似性)
-    * 如果未设置该属性，则 Activity 会继承为应用设置的相似性（请参阅[<application>](https://developer.android.com/guide/topics/manifest/application-element)元素的 taskAffinity 属性）。应用默认相似性的名称为[<manifest>](https://developer.android.com/guide/topics/manifest/manifest-element)元素所设置的软件包名称。
-* 安卓查询最近系统发的广播：[adb shell dumpsys | grep BroadcastRecord](https://blog.csdn.net/g19920917/article/details/38032413)
+    * 与 `Activity` 有着相似性的任务。从概念上讲，具有同一相似性的 `Activity` 归属同一任务（从用户的角度来看，则是归属同一“应用”）。任务的相似性由其根 `Activity` 的相似性确定。（可以用来制作小程序这样独立于app的任务）
+    * 相似性确定两点内容 — `Activity` 更改父项后的任务（请参阅 allowTaskReparenting 属性），以及通过 `FLAG_ACTIVITY_NEW_TASK` 标记启动 `Activity` 时，用于容纳该 `Activity` 的任务。
+    * 默认情况下，应用中的所有 `Activity` 都具有同一相似性。您可以设置该属性，以不同方式将其分组，甚至可以在同一任务内放置不同应用中定义的` Activity`。如要指定 `Activity` 与任何任务均无相似性，请将其设置为空字符串。(若主`Activity`设置为空字符串则所有任务都没有相似性)
+    * 如果未设置该属性，则 `Activity` 会继承为应用设置的相似性（请参阅[`<application>`](https://developer.android.com/guide/topics/manifest/application-element)元素的 taskAffinity 属性）。应用默认相似性的名称为[`<manifest>`](https://developer.android.com/guide/topics/manifest/manifest-element)元素所设置的软件包名称。
+* 安卓查询最近系统发的广播：[`adb shell dumpsys | grep BroadcastRecord`](https://blog.csdn.net/g19920917/article/details/38032413)
 * 谷歌的广告归因需要将firebase接入到项目中
 * 谷歌支付如果查询不到商品信息，可能是应用没有上架谷歌商店
 * 谷歌支付如果闪一下返回错误6，有可能是谷歌商店没有允许后台运行和后台开启
