@@ -54,6 +54,7 @@
         }
     }
      ```
+    ---
     ```Typescript
     // ts调用java
     public sendMsgToJava(__data:string) {
