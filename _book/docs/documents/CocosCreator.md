@@ -1,4 +1,3 @@
-[返回](../README.md)
 # cocos creator
 * 资源文件(图片,预制体等)名称不要有特殊符号和中文,可能会有问题  
 * CocosCreator需要动态加载的在resources图片的图集，不要使用自动图集，否则会每个图片都生成一个json文件(没卵用)  

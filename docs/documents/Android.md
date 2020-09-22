@@ -1,4 +1,3 @@
-[返回](../README.md)
 # 原生
 * 通过使用PowerManager里面的WakeLock可以使游戏不息屏
     > [Android-WakeLock(唤醒锁与CPU休眠/屏幕常亮)](https://blog.csdn.net/qq_32115439/article/details/80169222)
