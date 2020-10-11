@@ -17,6 +17,30 @@
 * git同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
 * `node._touchListener.setSwallowTouches(false);`可以让去掉点击事件截断，非父子节点也可穿透
 * CC默认的摄像机是透视模式的，哪怕是2d节点，如果需要用3d节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3d节点显示的角度不一样。
+## 关于Tiled Map
+* 可以在Tiled Map中新建对象层，使用多边形来设置不规则碰撞箱，在ccc内获得所有多边形的数组来动态生成多边形碰撞：
+    ``` typescript
+        let objects = map.getObjectGroup("collision").getObjects();//获取对象层内所有对象
+        for (let i = 0; i < objects.length; i++) {
+            let collider = new cc.Node("collision");
+            this.node.addChild(collider);
+            collider.setPosition(map.node.position.x + objects[i].x, map.node.position.y + objects[i].y);
+            let body = collider.addComponent(cc.RigidBody);
+            body.type = cc.RigidBodyType.Static;//设置刚体类型为静态
+            body.allowSleep = true;//设置自动休眠为true
+            body.gravityScale = 0;//设置受重力影响为0
+            body.awakeOnLoad = true;//设置默认唤醒
+            let polygon = collider.addComponent(cc.PhysicsPolygonCollider);
+            let p = objects[i].points;
+            let points: cc.Vec2[] = [];
+            for (let i = 0; i < p.length; i++) {
+                let v2 = cc.v2(p[i].x, p[i].y);
+                points.push(v2);
+            }
+            polygon.points = points;
+            polygon.apply();
+        }
+    ```
 ## 关于游戏优化
 * 加载场景时会把场景依赖的资源也一起加载，所以尽量不要把所有东西都放在场景内
 * 关于内存占用，动态加载预制体也会把预制体依赖的资源一起加载进来，所以要及时释放掉
