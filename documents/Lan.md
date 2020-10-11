@@ -4,3 +4,7 @@
 * es6中的Map可以使用 `list = Array.from(map.values());` 来只将value放入数组。或者使用 `list = [...map];` 来讲键值对都放入数组
 * `for...in..` 可以用来遍历对象内部的属性及方法
 * `for...of..` 专门用来遍历可迭代对象，比如数组，map，字符串等。如果数组中有部分下表没有赋值，则会跳过
+* 可以使用以下方式在字符串中插入变量
+    ``` javascript
+    `Name:${name}` or "Name:" + name
+    ```
