@@ -1,4 +1,4 @@
-# cocos creator
+# 综合
 * 资源文件(图片,预制体等)名称不要有特殊符号和中文,可能会有问题  
 * CocosCreator需要动态加载的在resources图片的图集，不要使用自动图集，否则会每个图片都生成一个json文件(没卵用)  
 * CocosCreator搭建安卓原生环境的时候要注意：CocosCreator安装目录和sdk、ndk、ant的路径都不能有中文和空格  
@@ -18,7 +18,11 @@
 * `node._touchListener.setSwallowTouches(false);`可以让去掉点击事件截断，非父子节点也可穿透
 * CC默认的摄像机是透视模式的，哪怕是2d节点，如果需要用3d节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3d节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
-## 关于Tiled Map
+
+# 关于插件
+* JS文件可以勾选导入为插件，插件JS文件不可用ccclass类，会在游戏代码前加载，可以用于定义一些全局变量方法等
+
+# 关于Tiled Map
 * 可以在Tiled Map中新建对象层，使用多边形来设置不规则碰撞箱，在ccc内获得所有多边形的数组来动态生成多边形碰撞：
     ``` typescript
         let objects = map.getObjectGroup("collision").getObjects();//获取对象层内所有对象
@@ -42,21 +46,22 @@
             polygon.apply();
         }
     ```
-## 关于游戏优化
+
+# 关于游戏优化
 * 加载场景时会把场景依赖的资源也一起加载，所以尽量不要把所有东西都放在场景内
 * 关于内存占用，动态加载预制体也会把预制体依赖的资源一起加载进来，所以要及时释放掉
 * 图片纹理占用内存大小是和图片的分辨率大小相关的，与图片本身文件大小无关，所以可以用小图的尽量用小图，能够显著降低该图片的内存占用
 * 场景内层级尽量不要太深，否则可能会影响渲染效率
 * 同一个界面的东西尽量在同一个层级，并且将同一个界面的图片做成图集，这样DC就只会有一次，在DC太高的时候可以这样进行优化
-    > [游戏性能调优](https://forum.cocos.org/t/topic/95040)  
-    [Cocos Creator 性能优化：DrawCall（全面！）](https://forum.cocos.org/t/cocos-creator-drawcall/95043)  
-    [Cocos Creator 微信小游戏平台启动与包体优化（首屏渲染耗时降低 50%）](https://forum.cocos.org/t/cocos-creator-50/94999)  
-    [自定义渲染合批之自定义顶点格式（附 Demo 和引擎源码解读）](https://forum.cocos.org/t/demo/95087)   
-    [解读 Cocos Creator 引擎：让实例化快 50% 的原理，“拖节点”性能会更好吗？](https://forum.cocos.org/t/cocos-creator-50/92957)  
-    [如何提升JSON.stringify()的性能？](https://segmentfault.com/a/1190000019400854)  
+> [游戏性能调优](https://forum.cocos.org/t/topic/95040)  
+[Cocos Creator 性能优化：DrawCall（全面！）](https://forum.cocos.org/t/cocos-creator-drawcall/95043)  
+[Cocos Creator 微信小游戏平台启动与包体优化（首屏渲染耗时降低 50%）](https://forum.cocos.org/t/cocos-creator-50/94999)  
+[自定义渲染合批之自定义顶点格式（附 Demo 和引擎源码解读）](https://forum.cocos.org/t/demo/95087)   
+[解读 Cocos Creator 引擎：让实例化快 50% 的原理，“拖节点”性能会更好吗？](https://forum.cocos.org/t/cocos-creator-50/92957)  
+[如何提升JSON.stringify()的性能？](https://segmentfault.com/a/1190000019400854)  
 
-    
-## 挺不错的文章
+# 挺不错的文章
+* 还未整理分类
 >[Cocos入门指引](https://forum.cocos.org/t/cocos/94728)  
 [使用Creator三年的游戏开发总结](https://forum.cocos.org/t/creator/94747) 
 [[教程] | 物理挖洞/涂抹地形的几种实现讨论 [大集合整理篇]](https://forum.cocos.org/t/topic/91985)  
