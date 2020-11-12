@@ -53,19 +53,20 @@
         }
     }
      ```
-    ```Typescript
-    // ts调用java
-    public sendMsgToJava(__data:string) {
-        let __msg = JSON.stringify(__data);
-        if (window.gameViewAPI && window.gameViewAPI.sendMsgToJava) {
-            LogComponent.Log("sendMsgToJava: " + __msg);
-            window.gameViewAPI.sendMsgToJava(__msg);
-        }
+    ```JavaScript
+    // js调用java
+    if (window.gameViewAPI && window.gameViewAPI.sendMsgToJava) {
+        LogComponent.Log("sendMsgToJava: " + __msg);
+        window.gameViewAPI.sendMsgToJava(__msg);
     }
     
     //接收java调用,要在全局的地方定义
     window["revMsgToJava"] = (data: string) => {
          //处理数据
+    }
+    or
+    window.revMsgToJava = (data) => {
+
     }
     ```
 * [安卓获取设备ID](https://www.jianshu.com/p/671e1da50b33)

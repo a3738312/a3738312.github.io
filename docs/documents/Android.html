@@ -256,18 +256,19 @@
       }
   }
 </code></pre>
-<pre><code class="lang-Typescript">  <span class="hljs-comment">// ts&#x8C03;&#x7528;java</span>
-  <span class="hljs-keyword">public</span> sendMsgToJava(__data:<span class="hljs-built_in">string</span>) {
-      <span class="hljs-keyword">let</span> __msg = <span class="hljs-built_in">JSON</span>.stringify(__data);
-      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.gameViewAPI &amp;&amp; <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava) {
-          LogComponent.Log(<span class="hljs-string">&quot;sendMsgToJava: &quot;</span> + __msg);
-          <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava(__msg);
-      }
+<pre><code class="lang-JavaScript">  <span class="hljs-comment">// js&#x8C03;&#x7528;java</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.gameViewAPI &amp;&amp; <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava) {
+      LogComponent.Log(<span class="hljs-string">&quot;sendMsgToJava: &quot;</span> + __msg);
+      <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava(__msg);
   }
 
   <span class="hljs-comment">//&#x63A5;&#x6536;java&#x8C03;&#x7528;,&#x8981;&#x5728;&#x5168;&#x5C40;&#x7684;&#x5730;&#x65B9;&#x5B9A;&#x4E49;</span>
-  <span class="hljs-built_in">window</span>[<span class="hljs-string">&quot;revMsgToJava&quot;</span>] = (data: <span class="hljs-built_in">string</span>) =&gt; {
+  <span class="hljs-built_in">window</span>[<span class="hljs-string">&quot;revMsgToJava&quot;</span>] = (data: string) =&gt; {
        <span class="hljs-comment">//&#x5904;&#x7406;&#x6570;&#x636E;</span>
+  }
+  or
+  <span class="hljs-built_in">window</span>.revMsgToJava = (data) =&gt; {
+
   }
 </code></pre>
 </li>
@@ -317,7 +318,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"安卓原生","level":"1.4","depth":1,"next":{"title":"小游戏","level":"1.5","depth":1,"path":"documents/InstanceGame.md","ref":"./documents/InstanceGame.md","articles":[]},"previous":{"title":"Cocos Creator","level":"1.3","depth":1,"path":"documents/CocosCreator.md","ref":"./documents/CocosCreator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/Android.md","mtime":"2020-11-12T07:09:38.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-12T07:10:22.981Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"安卓原生","level":"1.4","depth":1,"next":{"title":"小游戏","level":"1.5","depth":1,"path":"documents/InstanceGame.md","ref":"./documents/InstanceGame.md","articles":[]},"previous":{"title":"Cocos Creator","level":"1.3","depth":1,"path":"documents/CocosCreator.md","ref":"./documents/CocosCreator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/Android.md","mtime":"2020-11-12T07:31:44.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-12T07:32:36.185Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
