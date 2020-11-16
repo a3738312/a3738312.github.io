@@ -63,7 +63,7 @@
 # 挺不错的文章
 * 还未整理分类
 >[Cocos入门指引](https://forum.cocos.org/t/cocos/94728)  
-[使用Creator三年的游戏开发总结](https://forum.cocos.org/t/creator/94747) 
+[使用Creator三年的游戏开发总结](https://forum.cocos.org/t/creator/94747)  
 [[教程] | 物理挖洞/涂抹地形的几种实现讨论 [大集合整理篇]](https://forum.cocos.org/t/topic/91985)  
 [[教程]Creator迷宫的生成: DFS与BFS算法实现](https://forum.cocos.org/t/creator-dfs-bfs/93906)  
 [[ituuz分享]探照灯效果shader实现](https://forum.cocos.org/t/ituuz-shader/94180)  
@@ -81,5 +81,5 @@
 [使用CocosCreator模拟书本翻页效果](https://forum.cocos.org/t/cocoscreator/96358)  
 [Creator web平台setting.js 文件详细解析和资源加载解析](https://forum.cocos.org/t/creator-web-setting-js/78669)  
 [cocos实现对ETC2的支持](https://forum.cocos.org/t/cocos-etc2/49061)  
-[避免纹理抖动](https://forum.cocos.org/t/topic/91307/7)
+[避免纹理抖动](https://forum.cocos.org/t/topic/91307/7)  
 [使用2种方式实现动画的动态蒙版](https://forum.cocos.org/t/topic/96372)  
