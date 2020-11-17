@@ -3,10 +3,7 @@
 * CocosCreator需要动态加载的在resources图片的图集，不要使用自动图集，否则会每个图片都生成一个json文件(没卵用)  
 * CocosCreator搭建安卓原生环境的时候要注意：CocosCreator安装目录和sdk、ndk、ant的路径都不能有中文和空格  
 * CocosCreator编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
-    ``` 
-    fatal error: opening dependency file  
-    ...No such file or directory
-    ```
+    `fatal error: opening dependency file ... No such file or directory`
 * CocosCreator中Java和JS互相调用
     > [如何在 Android 平台上使用 JavaScript 直接调用 Java 方法](https://docs.cocos.com/creator/manual/zh/advanced-topics/java-reflection.html?h=java)  
     > ***(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去)***
@@ -15,13 +12,13 @@
 * 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
 * 两个ts文件互相引用编辑器会报错
 * git同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
-* `node._touchListener.setSwallowTouches(false);`可以让去掉点击事件截断，非父子节点也可穿透
+* `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透
 * CC默认的摄像机是透视模式的，哪怕是2d节点，如果需要用3d节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3d节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 * ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
   
 # 关于插件
-* JS文件可以勾选导入为插件，插件JS文件不可用ccclass类，会在游戏代码前加载，可以用于定义一些全局变量方法等
+* JS文件可以勾选导入为插件，插件JS文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
 
 # 关于Tiled Map
 * 可以在Tiled Map中新建对象层，使用多边形来设置不规则碰撞箱，在ccc内获得所有多边形的数组来动态生成多边形碰撞：
