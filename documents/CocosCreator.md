@@ -18,7 +18,8 @@
 * `node._touchListener.setSwallowTouches(false);`可以让去掉点击事件截断，非父子节点也可穿透
 * CC默认的摄像机是透视模式的，哪怕是2d节点，如果需要用3d节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3d节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
-
+* ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
+  
 # 关于插件
 * JS文件可以勾选导入为插件，插件JS文件不可用ccclass类，会在游戏代码前加载，可以用于定义一些全局变量方法等
 
