@@ -3,7 +3,7 @@
     > [Android-WakeLock(唤醒锁与CPU休眠/屏幕常亮)](https://blog.csdn.net/qq_32115439/article/details/80169222)
 * 接入一些需要设置某些值的SDK，要判断SDK和游戏都初始化完毕了再做后面的事情
 * Google play servers 接入的时候要注意创建OAth2.0客户端，一个调试客户端，一个正式客户端
-* 安卓Facebook分享需要base64图片或bitmap，可以在JS里处理图片(截图、拼图等)然后调用jsb.saveImageData()保存在本地，安卓根据路径读取图片直接以bitmap传入即可(会比较块)
+* 安卓Facebook分享需要base64图片或bitmap，可以在JS里处理图片(截图、拼图等)然后调用 `jsb.saveImageData()` 保存在本地，安卓根据路径读取图片直接以bitmap传入即可(会比较块)
 * Cocos Creator 生成的配置文件里，主Acticity的任务关联是空字符串，会导致其他的Actictiy独立于App显示在最近任务中，比如激励视频广告
 * **android:taskAffinity:**  
     * 与 `Activity` 有着相似性的任务。从概念上讲，具有同一相似性的 `Activity` 归属同一任务（从用户的角度来看，则是归属同一“应用”）。任务的相似性由其根 `Activity` 的相似性确定。（可以用来制作小程序这样独立于app的任务）
@@ -53,19 +53,20 @@
         }
     }
      ```
-    ```Typescript
-    // ts调用java
-    public sendMsgToJava(__data:string) {
-        let __msg = JSON.stringify(__data);
-        if (window.gameViewAPI && window.gameViewAPI.sendMsgToJava) {
-            LogComponent.Log("sendMsgToJava: " + __msg);
-            window.gameViewAPI.sendMsgToJava(__msg);
-        }
+    ```JavaScript
+    // js调用java
+    if (window.gameViewAPI && window.gameViewAPI.sendMsgToJava) {
+        LogComponent.Log("sendMsgToJava: " + __msg);
+        window.gameViewAPI.sendMsgToJava(__msg);
     }
     
     //接收java调用,要在全局的地方定义
     window["revMsgToJava"] = (data: string) => {
          //处理数据
+    }
+    or
+    window.revMsgToJava = (data) => {
+
     }
     ```
 * [安卓获取设备ID](https://www.jianshu.com/p/671e1da50b33)

@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>安卓原生 · GitBook</title>
+        <title>安卓原生 · 工作笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="../gitbook/style.css">
 
     
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
             
                 
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
@@ -71,7 +75,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -161,7 +165,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -207,7 +211,7 @@
 </li>
 <li>&#x63A5;&#x5165;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x67D0;&#x4E9B;&#x503C;&#x7684;SDK&#xFF0C;&#x8981;&#x5224;&#x65AD;SDK&#x548C;&#x6E38;&#x620F;&#x90FD;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6BD5;&#x4E86;&#x518D;&#x505A;&#x540E;&#x9762;&#x7684;&#x4E8B;&#x60C5;</li>
 <li>Google play servers &#x63A5;&#x5165;&#x7684;&#x65F6;&#x5019;&#x8981;&#x6CE8;&#x610F;&#x521B;&#x5EFA;OAth2.0&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4E00;&#x4E2A;&#x8C03;&#x8BD5;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x4E00;&#x4E2A;&#x6B63;&#x5F0F;&#x5BA2;&#x6237;&#x7AEF;</li>
-<li>&#x5B89;&#x5353;Facebook&#x5206;&#x4EAB;&#x9700;&#x8981;base64&#x56FE;&#x7247;&#x6216;bitmap&#xFF0C;&#x53EF;&#x4EE5;&#x5728;JS&#x91CC;&#x5904;&#x7406;&#x56FE;&#x7247;(&#x622A;&#x56FE;&#x3001;&#x62FC;&#x56FE;&#x7B49;)&#x7136;&#x540E;&#x8C03;&#x7528;jsb.saveImageData()&#x4FDD;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x5B89;&#x5353;&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x8BFB;&#x53D6;&#x56FE;&#x7247;&#x76F4;&#x63A5;&#x4EE5;bitmap&#x4F20;&#x5165;&#x5373;&#x53EF;(&#x4F1A;&#x6BD4;&#x8F83;&#x5757;)</li>
+<li>&#x5B89;&#x5353;Facebook&#x5206;&#x4EAB;&#x9700;&#x8981;base64&#x56FE;&#x7247;&#x6216;bitmap&#xFF0C;&#x53EF;&#x4EE5;&#x5728;JS&#x91CC;&#x5904;&#x7406;&#x56FE;&#x7247;(&#x622A;&#x56FE;&#x3001;&#x62FC;&#x56FE;&#x7B49;)&#x7136;&#x540E;&#x8C03;&#x7528; <code>jsb.saveImageData()</code> &#x4FDD;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x5B89;&#x5353;&#x6839;&#x636E;&#x8DEF;&#x5F84;&#x8BFB;&#x53D6;&#x56FE;&#x7247;&#x76F4;&#x63A5;&#x4EE5;bitmap&#x4F20;&#x5165;&#x5373;&#x53EF;(&#x4F1A;&#x6BD4;&#x8F83;&#x5757;)</li>
 <li>Cocos Creator &#x751F;&#x6210;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x4E3B;Acticity&#x7684;&#x4EFB;&#x52A1;&#x5173;&#x8054;&#x662F;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x7684;Actictiy&#x72EC;&#x7ACB;&#x4E8E;App&#x663E;&#x793A;&#x5728;&#x6700;&#x8FD1;&#x4EFB;&#x52A1;&#x4E2D;&#xFF0C;&#x6BD4;&#x5982;&#x6FC0;&#x52B1;&#x89C6;&#x9891;&#x5E7F;&#x544A;</li>
 <li><strong>android:taskAffinity:</strong>  <ul>
 <li>&#x4E0E; <code>Activity</code> &#x6709;&#x7740;&#x76F8;&#x4F3C;&#x6027;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x4ECE;&#x6982;&#x5FF5;&#x4E0A;&#x8BB2;&#xFF0C;&#x5177;&#x6709;&#x540C;&#x4E00;&#x76F8;&#x4F3C;&#x6027;&#x7684; <code>Activity</code> &#x5F52;&#x5C5E;&#x540C;&#x4E00;&#x4EFB;&#x52A1;&#xFF08;&#x4ECE;&#x7528;&#x6237;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#xFF0C;&#x5219;&#x662F;&#x5F52;&#x5C5E;&#x540C;&#x4E00;&#x201C;&#x5E94;&#x7528;&#x201D;&#xFF09;&#x3002;&#x4EFB;&#x52A1;&#x7684;&#x76F8;&#x4F3C;&#x6027;&#x7531;&#x5176;&#x6839; <code>Activity</code> &#x7684;&#x76F8;&#x4F3C;&#x6027;&#x786E;&#x5B9A;&#x3002;&#xFF08;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5236;&#x4F5C;&#x5C0F;&#x7A0B;&#x5E8F;&#x8FD9;&#x6837;&#x72EC;&#x7ACB;&#x4E8E;app&#x7684;&#x4EFB;&#x52A1;&#xFF09;</li>
@@ -256,18 +260,19 @@
       }
   }
 </code></pre>
-<pre><code class="lang-Typescript">  <span class="hljs-comment">// ts&#x8C03;&#x7528;java</span>
-  <span class="hljs-keyword">public</span> sendMsgToJava(__data:<span class="hljs-built_in">string</span>) {
-      <span class="hljs-keyword">let</span> __msg = <span class="hljs-built_in">JSON</span>.stringify(__data);
-      <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.gameViewAPI &amp;&amp; <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava) {
-          LogComponent.Log(<span class="hljs-string">&quot;sendMsgToJava: &quot;</span> + __msg);
-          <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava(__msg);
-      }
+<pre><code class="lang-JavaScript">  <span class="hljs-comment">// js&#x8C03;&#x7528;java</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.gameViewAPI &amp;&amp; <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava) {
+      LogComponent.Log(<span class="hljs-string">&quot;sendMsgToJava: &quot;</span> + __msg);
+      <span class="hljs-built_in">window</span>.gameViewAPI.sendMsgToJava(__msg);
   }
 
   <span class="hljs-comment">//&#x63A5;&#x6536;java&#x8C03;&#x7528;,&#x8981;&#x5728;&#x5168;&#x5C40;&#x7684;&#x5730;&#x65B9;&#x5B9A;&#x4E49;</span>
-  <span class="hljs-built_in">window</span>[<span class="hljs-string">&quot;revMsgToJava&quot;</span>] = (data: <span class="hljs-built_in">string</span>) =&gt; {
+  <span class="hljs-built_in">window</span>[<span class="hljs-string">&quot;revMsgToJava&quot;</span>] = (data: string) =&gt; {
        <span class="hljs-comment">//&#x5904;&#x7406;&#x6570;&#x636E;</span>
+  }
+  or
+  <span class="hljs-built_in">window</span>.revMsgToJava = (data) =&gt; {
+
   }
 </code></pre>
 </li>
@@ -317,7 +322,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"安卓原生","level":"1.4","depth":1,"next":{"title":"小游戏","level":"1.5","depth":1,"path":"documents/InstanceGame.md","ref":"./documents/InstanceGame.md","articles":[]},"previous":{"title":"Cocos Creator","level":"1.3","depth":1,"path":"documents/CocosCreator.md","ref":"./documents/CocosCreator.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"documents/Android.md","mtime":"2020-11-12T07:09:38.933Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-12T07:10:22.981Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"安卓原生","level":"1.4","depth":1,"next":{"title":"小游戏","level":"1.5","depth":1,"path":"documents/InstanceGame.md","ref":"./documents/InstanceGame.md","articles":[]},"previous":{"title":"Cocos Creator","level":"1.3","depth":1,"path":"documents/CocosCreator.md","ref":"./documents/CocosCreator.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"documents/Android.md","mtime":"2020-11-17T06:57:42.432Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-24T07:05:06.036Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
