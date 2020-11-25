@@ -11,3 +11,4 @@
 * 废弃代码及时清理
 * 空闲的时候看以前写的代码是否可以优化  
 
+![Firekula's github stats](https://github-readme-stats.vercel.app/api?username=firekula&theme=tokyonight&show_icons=true)
