@@ -7,32 +7,30 @@
 * 废弃代码及时清理
 * 空闲的时候看以前写的代码是否可以优化  
 * 资源文件 ( 图片,预制体等 ) 名称不要有特殊符号和中文,可能会有问题  
-* CocosCreator 搭建安卓原生环境的时候要注意：CocosCreator 安装目录和 sdk、ndk、ant 的路径都不能有中文和空格  
-* CocosCreator 编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
+* Cocos Creator 搭建安卓原生环境的时候要注意：Cocos Creator 安装目录和 sdk、ndk、ant 的路径都不能有中文和空格  
+* Cocos Creator 编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
     `fatal error: opening dependency file ... No such file or directory`
 * CocosCreator 中 Java 和 JS 互相调用  
   > [如何在 Android 平台上使用 JavaScript 直接调用 Java 方法](https://docs.cocos.com/creator/manual/zh/advanced-topics/java-reflection.html?h=java)  
-  > _**\(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_
-
-* 在TS中引用JS `import js = requrie("./js")` 无代码提示
-* 在JS中引用TS `import ts from "./ts";`
+  > _**\(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_  
+* 在 TS 中引用 JS `import js = requrie("./js")`
+* 在 JS 中引用 TS `import ts from "./ts";`
 * 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
-* 两个ts文件互相引用编辑器会报错
-* Git同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
+* 两个 TS 文件互相引用编辑器会报错
+* Git 同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
 * `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透
-* CC默认的摄像机是透视模式的，如果需要用3D节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3D节点显示的角度不一样。
+* Cocos Creator 默认的摄像机是透视模式的，如果需要用3D节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3D节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 * ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
 * 2.4.x版本的 `cc.assetManager.loadRemote` 远程下载单个文件可以通过在 `options` 中添加 `{onFileProgress:(loaded, total) => {} }` 来获取下载进度。但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
 
 **关于插件**
 
-* JS文件可以勾选导入为插件，插件JS文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
+* JS 文件可以勾选导入为插件，插件 JS 文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
 
 ## 关于Tiled Map
 
-* 可以在Tiled Map中新建对象层，使用多边形来设置不规则碰撞箱，在ccc内获得所有多边形的数组来动态生成多边形碰撞：
-
+* 可以在Tiled Map中新建对象层，使用多边形来设置不规则碰撞箱，在 Cocos Creator 内获得所有多边形的数组来动态生成多边形碰撞：  
   ```typescript
         let objects = map.getObjectGroup("collision").getObjects();//获取对象层内所有对象
         for (let i = 0; i < objects.length; i++) {
@@ -55,14 +53,13 @@
             polygon.apply();
         }
   ```
-
 ## 关于游戏优化
 
 * 加载场景时会把场景依赖的资源也一起加载，所以尽量不要把所有东西都放在场景内
 * 关于内存占用，动态加载预制体也会把预制体依赖的资源一起加载进来，所以要及时释放掉
 * 图片纹理占用内存大小是和图片的分辨率大小相关的，与图片本身文件大小无关，所以可以用小图的尽量用小图，能够显著降低该图片的内存占用
 * 场景内层级尽量不要太深，否则可能会影响渲染效率
-* 同一个界面的东西尽量在同一个层级，并且将同一个界面的图片做成图集，这样DC就只会有一次，在DC太高的时候可以这样进行优化
+* 同一个界面的东西尽量在同一个层级，并且将同一个界面的图片做成图集，这样 Draw Call 就只会有一次，在 Draw Call 太高的时候可以这样进行优化
 
   > [游戏性能调优](https://forum.cocos.org/t/topic/95040)  
   > [Cocos Creator 性能优化：DrawCall（全面！）](https://forum.cocos.org/t/cocos-creator-drawcall/95043)  
