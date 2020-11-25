@@ -26,9 +26,9 @@
 
 * 对于二级弹框和场景资源释放，可以使用 cc.loader.release 接口配合场景的“自动释放”属性来实现。  
 * 对于一个二级面板，我们可以约定这个二级面板引用的资源范围。我们把游戏中共用的资源放到 Common 图集中，把每个二级面板的资源放到自己的图集中。当释放资源的时候，我们可以通过 `cc.loader.getDependsRecursively( 'prefab url' )` API 拿到面板 Prefab 所引用的所有资源，然后对这个返回的资源数组做资源释放。  
-* 比如，在我们的项目里面，释放资源的时候，我排除了 Common ， Main ， Game/FX 目录下面的图集资源：
+* 比如，在我们的项目里面，释放资源的时候，我排除了 Common ， Main ， Game/FX 目录下面的图集资源：  
 ![](../image/wechat02.png)  
-* 场景的资源释放只需要勾选一个属性就可以了：
+* 场景的资源释放只需要勾选一个属性就可以了：  
 ![](../image/wechat03.png)  
 
 ## 二、性能优化
@@ -50,9 +50,9 @@
 **1 、首包中不要包含过多的资源，如果一定要包含，请务必压缩。对于背景图片可以使用 JPG ， PNG 图片可以使用 png8 进行压缩。**  
 **2 、代码必须使用 `uglify` 进行压缩，尤其是第三方库，游戏代码如果使用 release 构建引擎有 做 `uglify` 。如果想进一步压缩代码体积，需要考虑使用 `Google Closure Compiler` 进行高级压缩。**  
 **3 、不需要动态加载的图片资源不要放到 resources 目录，放到此目录的资源在构建导出的时候，会生成资源映射关系到 Settings.js 中，会导致该 Settings.js 文件变大。另外为了防止缓存问题，需要使用 md5 ，此时 Settings.js 文件会进一步膨胀。过气的活动 Prefab 也可以移出 resources 目录，所以定期资源清理也是必要的。**  
-**4 、 Settings.js 文件优化，可以自己写脚本把 md5Map 里面的 rawAssets 的 md5 映射存到原本的 rawAssets 中，然后在 boot.js 里面还原 md5Map 即可。优化之后的 Settings.js 长这个样子：**
+**4 、 Settings.js 文件优化，可以自己写脚本把 md5Map 里面的 rawAssets 的 md5 映射存到原本的 rawAssets 中，然后在 boot.js 里面还原 md5Map 即可。优化之后的 Settings.js 长这个样子：**  
 ![](../image/wechat04.png)  
-**boot.js 里面还原 md5AssetMap 的的代码：**
+**boot.js 里面还原 md5AssetMap 的的代码：**  
 ![](../image/wechat05.png)  
 **5 、一定要使用 release 模式构建，这种方式构建出来的 json 资源会压缩， Settings.js 也会优化。**  
-**6 、对于引擎不使用的模块进行裁剪，这个可以减少引擎大小**
+**6 、对于引擎不使用的模块进行裁剪，这个可以减少引擎大小**  
