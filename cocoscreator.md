@@ -6,15 +6,11 @@
 * 一个需求完成后，先提交一次再继续做别的需求
 * 废弃代码及时清理
 * 空闲的时候看以前写的代码是否可以优化  
-* 资源文件\(图片,预制体等\)名称不要有特殊符号和中文,可能会有问题  
-* CocosCreator需要动态加载的在resources图片的图集，不要使用自动图集，否则会每个图片都生成一个json文件\(没卵用\)  
-* CocosCreator搭建安卓原生环境的时候要注意：CocosCreator安装目录和sdk、ndk、ant的路径都不能有中文和空格  
-* CocosCreator编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
-
+* 资源文件 ( 图片,预制体等 ) 名称不要有特殊符号和中文,可能会有问题  
+* CocosCreator 搭建安卓原生环境的时候要注意：CocosCreator 安装目录和 sdk、ndk、ant 的路径都不能有中文和空格  
+* CocosCreator 编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
     `fatal error: opening dependency file ... No such file or directory`
-
-* CocosCreator中Java和JS互相调用
-
+* CocosCreator 中 Java 和 JS 互相调用  
   > [如何在 Android 平台上使用 JavaScript 直接调用 Java 方法](https://docs.cocos.com/creator/manual/zh/advanced-topics/java-reflection.html?h=java)  
   > _**\(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_
 
@@ -22,14 +18,14 @@
 * 在JS中引用TS `import ts from "./ts";`
 * 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
 * 两个ts文件互相引用编辑器会报错
-* git同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
+* Git同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
 * `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透
-* CC默认的摄像机是透视模式的，如果需要用3d节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3d节点显示的角度不一样。
+* CC默认的摄像机是透视模式的，如果需要用3D节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3D节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 * ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
 * 2.4.x版本的 `cc.assetManager.loadRemote` 远程下载单个文件可以通过在 `options` 中添加 `{onFileProgress:(loaded, total) => {} }` 来获取下载进度。但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
 
-  **关于插件**
+**关于插件**
 
 * JS文件可以勾选导入为插件，插件JS文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
 
