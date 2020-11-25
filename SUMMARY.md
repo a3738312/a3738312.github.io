@@ -1,7 +1,9 @@
-# 目录
+# Table of contents
 
-* [关于JS和TS](./documents/Lan.md)  
-* [Cocos Creator](./documents/CocosCreator.md)  
-* [安卓原生](./documents/Android.md)  
-* [小游戏](./documents/InstanceGame.md)
-* [微信小游戏的优化](./documents/WeChat.md)
+* [Introduction](README.md)
+* [关于JS和TS](lan.md)
+* [Cocos Creator](cocoscreator.md)
+* [安卓原生](android.md)
+* [小游戏](instancegame.md)
+* [微信小游戏的优化](wechat.md)
+
