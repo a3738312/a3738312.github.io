@@ -1,7 +1,23 @@
 {
     "title": "工作笔记",
     "language": "zh-hans",
-    "plugins":[
-        "advanced-emoji"
-    ]
+    "plugins": [
+        "advanced-emoji",
+        "-fontsettings",
+        "-sharing",
+        "-lunr",
+        "search-plus",
+        "-highlight",
+        "prism",
+        "prism-themes",
+        "back-to-top-button",
+        "hide-published-with"
+    ],
+    "pluginsConfig": {
+        "prism": {
+            "css": [
+                "prism-themes/themes/prism-vsc-dark-plus.css"
+            ]
+        }
+    }
 }

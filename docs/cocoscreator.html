@@ -21,15 +21,19 @@
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-back-to-top-button/plugin.css">
                 
             
                 
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
-                
-            
-                
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
                 
             
         
@@ -211,6 +215,9 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
 <div id="book-search-results">
     <div class="search-noresults">
     
@@ -249,26 +256,26 @@
 <h2 id="&#x5173;&#x4E8E;tiled-map">&#x5173;&#x4E8E;Tiled Map</h2>
 <ul>
 <li><p>&#x53EF;&#x4EE5;&#x5728;Tiled Map&#x4E2D;&#x65B0;&#x5EFA;&#x5BF9;&#x8C61;&#x5C42;&#xFF0C;&#x4F7F;&#x7528;&#x591A;&#x8FB9;&#x5F62;&#x6765;&#x8BBE;&#x7F6E;&#x4E0D;&#x89C4;&#x5219;&#x78B0;&#x649E;&#x7BB1;&#xFF0C;&#x5728; Cocos Creator &#x5185;&#x83B7;&#x5F97;&#x6240;&#x6709;&#x591A;&#x8FB9;&#x5F62;&#x7684;&#x6570;&#x7EC4;&#x6765;&#x52A8;&#x6001;&#x751F;&#x6210;&#x591A;&#x8FB9;&#x5F62;&#x78B0;&#x649E;&#xFF1A;  </p>
-<pre><code class="lang-typescript">      <span class="hljs-keyword">let</span> objects = map.getObjectGroup(<span class="hljs-string">&quot;collision&quot;</span>).getObjects();<span class="hljs-comment">//&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x5C42;&#x5185;&#x6240;&#x6709;&#x5BF9;&#x8C61;</span>
-      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; objects.length; i++) {
-          <span class="hljs-keyword">let</span> collider = <span class="hljs-keyword">new</span> cc.Node(<span class="hljs-string">&quot;collision&quot;</span>);
-          <span class="hljs-keyword">this</span>.node.addChild(collider);
-          collider.setPosition(map.node.position.x + objects[i].x, map.node.position.y + objects[i].y);
-          <span class="hljs-keyword">let</span> body = collider.addComponent(cc.RigidBody);
-          body.type = cc.RigidBodyType.Static;<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x521A;&#x4F53;&#x7C7B;&#x578B;&#x4E3A;&#x9759;&#x6001;</span>
-          body.allowSleep = <span class="hljs-literal">true</span>;<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x4F11;&#x7720;&#x4E3A;true</span>
-          body.gravityScale = <span class="hljs-number">0</span>;<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x53D7;&#x91CD;&#x529B;&#x5F71;&#x54CD;&#x4E3A;0</span>
-          body.awakeOnLoad = <span class="hljs-literal">true</span>;<span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x5524;&#x9192;</span>
-          <span class="hljs-keyword">let</span> polygon = collider.addComponent(cc.PhysicsPolygonCollider);
-          <span class="hljs-keyword">let</span> p = objects[i].points;
-          <span class="hljs-keyword">let</span> points: cc.Vec2[] = [];
-          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; p.length; i++) {
-              <span class="hljs-keyword">let</span> v2 = cc.v2(p[i].x, p[i].y);
-              points.push(v2);
-          }
-          polygon.points = points;
-          polygon.apply();
-      }
+<pre class="language-"><code class="lang-typescript">      <span class="token keyword">let</span> objects <span class="token operator">=</span> map<span class="token punctuation">.</span><span class="token function">getObjectGroup</span><span class="token punctuation">(</span><span class="token string">&quot;collision&quot;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getObjects</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x5C42;&#x5185;&#x6240;&#x6709;&#x5BF9;&#x8C61;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> objects<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">let</span> collider <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">cc</span><span class="token punctuation">.</span><span class="token function">Node</span><span class="token punctuation">(</span><span class="token string">&quot;collision&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span>node<span class="token punctuation">.</span><span class="token function">addChild</span><span class="token punctuation">(</span>collider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          collider<span class="token punctuation">.</span><span class="token function">setPosition</span><span class="token punctuation">(</span>map<span class="token punctuation">.</span>node<span class="token punctuation">.</span>position<span class="token punctuation">.</span>x <span class="token operator">+</span> objects<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> map<span class="token punctuation">.</span>node<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y <span class="token operator">+</span> objects<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">let</span> body <span class="token operator">=</span> collider<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>cc<span class="token punctuation">.</span>RigidBody<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          body<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">=</span> cc<span class="token punctuation">.</span>RigidBodyType<span class="token punctuation">.</span>Static<span class="token punctuation">;</span><span class="token comment">//&#x8BBE;&#x7F6E;&#x521A;&#x4F53;&#x7C7B;&#x578B;&#x4E3A;&#x9759;&#x6001;</span>
+          body<span class="token punctuation">.</span>allowSleep <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//&#x8BBE;&#x7F6E;&#x81EA;&#x52A8;&#x4F11;&#x7720;&#x4E3A;true</span>
+          body<span class="token punctuation">.</span>gravityScale <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment">//&#x8BBE;&#x7F6E;&#x53D7;&#x91CD;&#x529B;&#x5F71;&#x54CD;&#x4E3A;0</span>
+          body<span class="token punctuation">.</span>awakeOnLoad <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span><span class="token comment">//&#x8BBE;&#x7F6E;&#x9ED8;&#x8BA4;&#x5524;&#x9192;</span>
+          <span class="token keyword">let</span> polygon <span class="token operator">=</span> collider<span class="token punctuation">.</span><span class="token function">addComponent</span><span class="token punctuation">(</span>cc<span class="token punctuation">.</span>PhysicsPolygonCollider<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">let</span> p <span class="token operator">=</span> objects<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>points<span class="token punctuation">;</span>
+          <span class="token keyword">let</span> points<span class="token operator">:</span> cc<span class="token punctuation">.</span>Vec2<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> p<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+              <span class="token keyword">let</span> v2 <span class="token operator">=</span> cc<span class="token punctuation">.</span><span class="token function">v2</span><span class="token punctuation">(</span>p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> p<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              points<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>v2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+          polygon<span class="token punctuation">.</span>points <span class="token operator">=</span> points<span class="token punctuation">;</span>
+          <span class="token function">polygon</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
 </code></pre>
 <h2 id="&#x5173;&#x4E8E;&#x6E38;&#x620F;&#x4F18;&#x5316;">&#x5173;&#x4E8E;&#x6E38;&#x620F;&#x4F18;&#x5316;</h2>
 </li>
@@ -311,6 +318,22 @@
     </div>
 </div>
 
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 
@@ -334,7 +357,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cocos Creator","level":"1.3","depth":1,"next":{"title":"安卓原生","level":"1.4","depth":1,"path":"android.md","ref":"android.md","articles":[]},"previous":{"title":"关于JS和TS","level":"1.2","depth":1,"path":"lan.md","ref":"lan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"cocoscreator.md","mtime":"2020-11-25T10:22:34.161Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-30T09:06:33.212Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Cocos Creator","level":"1.3","depth":1,"next":{"title":"安卓原生","level":"1.4","depth":1,"path":"android.md","ref":"android.md","articles":[]},"previous":{"title":"关于JS和TS","level":"1.2","depth":1,"path":"lan.md","ref":"lan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","-highlight","prism","prism-themes","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"]},"advanced-emoji":{"embedEmojis":false},"search-plus":{},"prism-themes":{},"back-to-top-button":{},"hide-published-with":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"cocoscreator.md","mtime":"2020-11-25T10:22:34.161Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-30T17:43:51.127Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -344,27 +367,27 @@
     <script src="gitbook/theme.js"></script>
     
         
+        <script src="gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-hide-published-with/plugin.js"></script>
+        
+    
+        
         <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
         
     
         
         <script src="gitbook/gitbook-plugin-search/search.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 
