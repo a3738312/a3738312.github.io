@@ -81,4 +81,8 @@
 
 * [安卓获取设备ID](https://www.jianshu.com/p/671e1da50b33)
 * 写effect的时候要注意参数格式不能有boolean，因为安卓底层转换格式没有boolean
-
+* 使用 Android studio 打开构建出的安卓项目时，若出现一下报错，可能是 NDK 路径配置或 NDK 版本有问题
+  ``` java
+  A problem occurred configuring project ':app'.
+    java.lang.NullPointerException (no error message)
+  ```
