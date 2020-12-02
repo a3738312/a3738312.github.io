@@ -17,16 +17,16 @@
 
   ```typescript
     //官方示例
-    var audio = qg.createInnerAudioContext()
-    audio.loop = true
-    audio.volume = 0.7
-    audio.autoplay = false
+    var audio = qg.createInnerAudioContext();
+    audio.loop = true;
+    audio.volume = 0.7;
+    audio.autoplay = false;
     var playSound = function() {
-      audio.play()
-      audio.offCanplay(playSound)
+      audio.play();
+      audio.offCanplay(playSound);
     }
-    audio.onCanplay(playSound)
-    audio.src = 'res/demo.mp3'
+    audio.onCanplay(playSound);
+    audio.src = 'res/demo.mp3';
   ```
 
 * 音频播放在切后台的时候调用暂停音频的话，在切前台的时候有可能音频还会自动播放，但是音频当前状态还是暂停，这种时候可以在且前台先调用 `audio.play()` 再调用 `audio.puase()` 来暂停
