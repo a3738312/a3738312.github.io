@@ -18,11 +18,17 @@
 * 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
 * 两个 TS 文件互相引用编辑器会报错
 * Git 同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
-* `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透
+* `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透，使用 `cc.macro.ENABLE_MULTI_TOUCH = false;` 关闭多点触碰，会导致点击事件被其他节点截断，哪怕层级在该节点底下。
 * Cocos Creator 默认的摄像机是透视模式的，如果需要用3D节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3D节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 * ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
-* 2.4.x版本的 `cc.assetManager.loadRemote` 远程下载单个文件可以通过在 `options` 中添加 `{onFileProgress:(loaded, total) => {} }` 来获取下载进度。但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
+* 2.4.x 版本的 `cc.assetManager.loadRemote` 远程下载单个文件可以通过在 `options` 中添加 `{onFileProgress:(loaded, total) => {} }` 来获取下载进度。但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
+* 2.4.x 版本的 `cc.assetManager.loadBundle` 只会加载 Bundle 的配置文件，加载完毕会返回一个 Bundle 对象，可以通过这个对象来加载 Bundle 内的资源:
+  ```ts
+  bundle.load(assetUrl, cc.Asset, (finish: number, total: number) => {
+  }, (error: Error, asset: cc.Asset) => {
+  });
+  ```
 * Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕， `setTrackEndListener` 监听到后 `clearTrack` 无效。
 
 **关于插件**
@@ -32,7 +38,7 @@
 ## 关于Tiled Map
 
 * 可以在Tiled Map中新建对象层，使用多边形来设置不规则碰撞箱，在 Cocos Creator 内获得所有多边形的数组来动态生成多边形碰撞：  
-  ```typescript
+  ```ts
         let objects = map.getObjectGroup("collision").getObjects();//获取对象层内所有对象
         for (let i = 0; i < objects.length; i++) {
             let collider = new cc.Node("collision");
