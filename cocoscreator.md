@@ -12,7 +12,7 @@
     `fatal error: opening dependency file ... No such file or directory`
 * CocosCreator 中 Java 和 JS 互相调用  
   > [如何在 Android 平台上使用 JavaScript 直接调用 Java 方法](https://docs.cocos.com/creator/manual/zh/advanced-topics/java-reflection.html?h=java)  
-  > _**\(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_  
+  >> _**\(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_  
 * 在 TS 中引用 JS `import js = requrie("./js")`
 * 在 JS 中引用 TS `import ts from "./ts";`
 * 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
@@ -26,8 +26,8 @@
 * 2.4.x 版本的 `cc.assetManager.loadBundle` 只会加载 Bundle 的配置文件，加载完毕会返回一个 Bundle 对象，可以通过这个对象来加载 Bundle 内的资源:
   ```ts
   bundle.load(assetUrl, cc.Asset, (finish: number, total: number) => {
-  }, (error: Error, asset: cc.Asset) => {
-  });
+    }, (error: Error, asset: cc.Asset) => {
+    });
   ```
 * Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕， `setTrackEndListener` 监听到后 `clearTrack` 无效。
 
@@ -100,4 +100,3 @@
   > [cocos实现对ETC2的支持](https://forum.cocos.org/t/cocos-etc2/49061)  
   > [避免纹理抖动](https://forum.cocos.org/t/topic/91307/7)  
   > [使用2种方式实现动画的动态蒙版](https://forum.cocos.org/t/topic/96372)
-
