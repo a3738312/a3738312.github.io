@@ -29,6 +29,7 @@
     }, (error: Error, asset: cc.Asset) => {
     });
   ```
+* `cc.assetManager.loadBundle` 可以加载本地 Bundle 也就是说开发时可以直接构建然后加载 build 出来的 AssetBundle 包进行测试
 * Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕， `setTrackEndListener` 监听到后 `clearTrack` 无效。
 
 **关于插件**
