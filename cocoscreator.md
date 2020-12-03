@@ -25,6 +25,7 @@
 * 2.4.x 版本的 `cc.assetManager.loadRemote` 远程下载单个文件可以通过在 `options` 中添加 `{onFileProgress:(loaded, total) => {} }` 来获取下载进度。但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
 * 2.4.x 版本的 `cc.assetManager.loadBundle` 只会加载 Bundle 的配置文件，加载完毕会返回一个 Bundle 对象，可以通过这个对象来加载 Bundle 内的资源:
   ```ts
+  //cc.Asset 为指定类型，如果加载文件夹，将会只返回指定类型的资源
   bundle.load(assetUrl, cc.Asset, (finish: number, total: number) => {
     }, (error: Error, asset: cc.Asset) => {
     });
