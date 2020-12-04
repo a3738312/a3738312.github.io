@@ -35,7 +35,8 @@
   ```
 * `cc.assetManager.loadBundle` 可以加载本地 Bundle 也就是说开发时可以直接构建然后加载 build 出来的 AssetBundle 包进行测试
 * AssetBundle 可以包含代码，但是TS使用时不可以引用 Bundle 包里面的类，需要使用 `node.getComponent('className');` 的方式来获取 Component
-* AssetBundle 的版本号就是打包出来之后中间的这段字符串 `config.版本号.json` `index.版本号.js` 若勾选md5，则会自动添加md5字符串，也可以手动填写，如 `index.1.0.js` 加载时版本号填写 `{ver: '1.0'}` 即可
+* AssetBundle 的版本号就是打包出来之后中间的这段字符串 `config.版本号.json` `index.版本号.js` 若勾选md5，则会自动添加md5字符串，也可以手动填写，如 `index.1.0.js` 加载时版本号填写 `{ver: '1.0'}` 即可  
+
 ### 关于插件
 
 * JS 文件可以勾选导入为插件，插件 JS 文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
