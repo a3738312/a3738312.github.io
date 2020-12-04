@@ -22,6 +22,9 @@
 * Cocos Creator 默认的摄像机是透视模式的，如果需要用3D节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个3D节点显示的角度不一样。
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 * ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
+* Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕， `setTrackEndListener` 监听到后 `clearTrack` 无效。
+
+### AsseBundle
 * 2.4.x 版本的 `cc.assetManager.loadRemote` 远程下载单个文件可以通过在 `options` 中添加 `{onFileProgress:(loaded, total) => {} }` 来获取下载进度。但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
 * 2.4.x 版本的 `cc.assetManager.loadBundle` 只会加载 Bundle 的配置文件，加载完毕会返回一个 Bundle 对象，可以通过这个对象来加载 Bundle 内的资源:
   ```ts
@@ -31,9 +34,9 @@
     });
   ```
 * `cc.assetManager.loadBundle` 可以加载本地 Bundle 也就是说开发时可以直接构建然后加载 build 出来的 AssetBundle 包进行测试
-* Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕， `setTrackEndListener` 监听到后 `clearTrack` 无效。
-
-**关于插件**
+* AssetBundle 可以包含代码，但是TS使用时不可以引用 Bundle 包里面的类，需要使用 `node.getComponent('className');` 的方式来获取 Component
+* AssetBundle 的版本号就是打包出来之后中间的这段字符串 `config.版本号.json` `index.版本号.js` 若勾选md5，则会自动添加md5字符串，也可以手动填写，如 `index.1.0.js` 加载时版本号填写 `{ver: '1.0'}` 即可
+### 关于插件
 
 * JS 文件可以勾选导入为插件，插件 JS 文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
 
