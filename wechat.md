@@ -52,7 +52,7 @@ cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
   ```
 * 场景的资源释放只需要勾选一个属性就可以了：  
 
-  ![](.gitbook/assets/wechat03.png)  
+  ![](./image/wechat03.png)  
 
 ## 二、性能优化
 
@@ -86,7 +86,7 @@ cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
 
   **4 、 Settings.js 文件优化，可以自己写脚本把 md5Map 里面的 rawAssets 的 md5 映射存到原本的 rawAssets 中，然后在 boot.js 里面还原 md5Map 即可。优化之后的 Settings.js 长这个样子：**  
 
-  ![](.gitbook/assets/wechat04.png)  
+  ![](./image/wechat04.png)  
 
   **boot.js 里面还原 md5AssetMap 的的代码：**  
   ```js
