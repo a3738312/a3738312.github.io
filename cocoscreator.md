@@ -29,11 +29,15 @@
 * 2.4.x 版本的 `cc.assetManager.loadBundle` 只会加载 Bundle 的配置文件，加载完毕会返回一个 Bundle 对象，可以通过这个对象来加载 Bundle 内的资源:
   ```ts
   //cc.Asset 为指定类型，如果加载文件夹，将会只返回指定类型的资源
+  bundle.loadDir(assetUrl, cc.Asset, (finish: number, total: number) => {
+    }, (error: Error, asset: cc.Asset) => {
+    });
   bundle.load(assetUrl, cc.Asset, (finish: number, total: number) => {
     }, (error: Error, asset: cc.Asset) => {
     });
   ```
 * `cc.assetManager.loadBundle` 可以加载本地 Bundle 也就是说开发时可以直接构建然后加载 build 出来的 AssetBundle 包进行测试
+* 加载目录下所有资源会包含子目录，且加载目录下所有资源时，若指定了资源类型，则只会加载该类型的资源
 * AssetBundle 可以包含代码，但是TS使用时不可以引用 Bundle 包里面的类，需要使用 `node.getComponent('className');` 的方式来获取 Component
 * AssetBundle 的版本号就是打包出来之后中间的这段字符串 `config.版本号.json` `index.版本号.js` 若勾选md5，则会自动添加md5字符串，也可以手动填写，如 `index.1.0.js` 加载时版本号填写 `{ver: '1.0'}` 即可  
 
