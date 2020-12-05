@@ -8,8 +8,18 @@ _来自网友的pdf，不知道作者是谁_
 **1 、优化双份纹理（必做！）**
 
 * 在你的项目中添加如下代码，就可以减少大量内存：  
-
-  ![](.gitbook/assets/wechat01.png)  
+```js
+cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
+    let oldHandleLoadedTexture = cc.Texture2D.prototype.handleLoadedTexture;
+    let optimizedHandleTexture = function (premultiplied) {
+        oldHandleLoadedTexture.call(this, premultiplied);
+        this._image.src = '';
+        //for cocos creator 1.4
+        //this._htmlElementObj.src = '';
+    }l
+    cc.Texture2D.prototype.handleLoadedTexture = optimizedHandleTexture;
+});
+```
 
 * 这里面的原理是，当 Creator 使用 DOM 的 Image 对象去加载一个图片资源的时候，微信底层的引擎会解码图片数据，同时往 GPU 上传一份纹理，然后引擎的 Sprite 在渲染的时候会使用这个 DOM Image 再生成一份 GPU 纹理并上传，导致 GPU 里面存在双份纹理。使用 `Image.scr = ''` 可以释放掉 GPU 里面多出来的一份纹理，同时也会释放 CPU 端解码的纹理内存。所以，基本上对 Image 对象调用了 `src = ''` 这个操作，这个 Image 对象占用的内存就释放干净了。  
 * 之前尝试使用 DOM Image pool ，当一个图片资源解码成功并且上传 GPU 以后，把这个 Image 对象的 src 置空后放入池子，然后重复利用。不过对比了一下内存占用，感觉 `src = ''` 之后内存立即就释放了，优化作用并不是很明显。
@@ -29,9 +39,17 @@ _来自网友的pdf，不知道作者是谁_
 * 对于二级弹框和场景资源释放，可以使用 cc.loader.release 接口配合场景的“自动释放”属性来实现。  
 * 对于一个二级面板，我们可以约定这个二级面板引用的资源范围。我们把游戏中共用的资源放到 Common 图集中，把每个二级面板的资源放到自己的图集中。当释放资源的时候，我们可以通过 `cc.loader.getDependsRecursively( 'prefab url' )` API 拿到面板 Prefab 所引用的所有资源，然后对这个返回的资源数组做资源释放。  
 * 比如，在我们的项目里面，释放资源的时候，我排除了 Common ， Main ， Game/FX 目录下面的图集资源：  
-
-  ![](.gitbook/assets/wechat02.png)  
-
+  ```js
+  releaseAllDeps(deps) {
+      deps.forEach((item) => {
+          if (item.indexOf('UITexture/Common') === -1
+              && item.indexOf('UITexture/Main') === -1
+              && item.indexOf('UITexture/Game/FX') === -1) {
+              cc.loader.release(item);
+          }
+      });
+  }
+  ```
 * 场景的资源释放只需要勾选一个属性就可以了：  
 
   ![](.gitbook/assets/wechat03.png)  
@@ -71,8 +89,24 @@ _来自网友的pdf，不知道作者是谁_
   ![](.gitbook/assets/wechat04.png)  
 
   **boot.js 里面还原 md5AssetMap 的的代码：**  
-
-  ![](.gitbook/assets/wechat05.png)  
+  ```js
+  rawAssets = _CCSettings.rawAssets;
+  assetTypes = _CCSettings.assetTypes;
+  md5AssetsMap = _CCSettings.md5AssetsMap;
+  for (let mount in rawAssets) {
+      let entries = rawAssets[mount];
+      for (let uuid in entries) {
+          let entry = entries[uuid];
+          let type = entry[1];
+          if (typeof type === 'number') {
+              entry[1] = assetTypes[type];
+          }
+          if (entry[2] && (typeof entry[2] === 'string')) {
+              md5AssetsMap['assets/' + entry[0]] = entry[2];
+          }
+      }
+  }
+  ```
 
   **5 、一定要使用 release 模式构建，这种方式构建出来的 json 资源会压缩， Settings.js 也会优化。**  
 
