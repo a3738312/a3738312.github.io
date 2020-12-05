@@ -8,18 +8,18 @@ _来自网友的pdf，不知道作者是谁_
 **1 、优化双份纹理（必做！）**
 
 * 在你的项目中添加如下代码，就可以减少大量内存：  
-```js
-cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
-    let oldHandleLoadedTexture = cc.Texture2D.prototype.handleLoadedTexture;
-    let optimizedHandleTexture = function (premultiplied) {
-        oldHandleLoadedTexture.call(this, premultiplied);
-        this._image.src = '';
-        //for cocos creator 1.4
-        //this._htmlElementObj.src = '';
-    }l
-    cc.Texture2D.prototype.handleLoadedTexture = optimizedHandleTexture;
-});
-```
+  ```js
+  cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
+      let oldHandleLoadedTexture = cc.Texture2D.prototype.handleLoadedTexture;
+      let optimizedHandleTexture = function (premultiplied) {
+          oldHandleLoadedTexture.call(this, premultiplied);
+          this._image.src = '';
+          //for cocos creator 1.4
+          //this._htmlElementObj.src = '';
+      }
+      cc.Texture2D.prototype.handleLoadedTexture = optimizedHandleTexture;
+  });
+  ```
 
 * 这里面的原理是，当 Creator 使用 DOM 的 Image 对象去加载一个图片资源的时候，微信底层的引擎会解码图片数据，同时往 GPU 上传一份纹理，然后引擎的 Sprite 在渲染的时候会使用这个 DOM Image 再生成一份 GPU 纹理并上传，导致 GPU 里面存在双份纹理。使用 `Image.scr = ''` 可以释放掉 GPU 里面多出来的一份纹理，同时也会释放 CPU 端解码的纹理内存。所以，基本上对 Image 对象调用了 `src = ''` 这个操作，这个 Image 对象占用的内存就释放干净了。  
 * 之前尝试使用 DOM Image pool ，当一个图片资源解码成功并且上传 GPU 以后，把这个 Image 对象的 src 置空后放入池子，然后重复利用。不过对比了一下内存占用，感觉 `src = ''` 之后内存立即就释放了，优化作用并不是很明显。
