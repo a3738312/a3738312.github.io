@@ -32,7 +32,7 @@ cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
 **3 、优化 Label**
 
 * Creator1.9.3 之前的版本，每创建一个系统字体就会生成一个离屏的 Canvas 对象，然后保存这个 Canvas 对象的 context ，每次 draw 一个系统字体的时候会调用这个 context 的 fillText方法生成一张纹理并渲染。 1.9.3 以后我提交了一个优化，所有的系统字体渲染共享一个离屏 Canvas ，这样大概可以优化 30M 左右的内存（不同的项目效果不一样）。  
-* 老引擎参考 PR 地址：`optimization label memory #2693 fix label rendering issue #2880 （这个 PR 主要是 Bug 修复）`
+* 老引擎参考 PR 地址：`optimization label memory #2693 fix label rendering issue #2880 (这个 PR 主要是 Bug 修复)`
 
 **4 、优化资源释放**
 
@@ -65,7 +65,7 @@ cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
 
   **3 、减少 Mask 组件的使用，该组件会导致游戏中的 Drawcall 数量变多。**  
 
-  **4 、禁用引擎的 culling ，禁用方法 cc.macro.ENABLE\_CULLING = false 。**  
+  **4 、禁用引擎的 culling ，禁用方法 cc.macro.ENABLE_CULLING = false 。**  
 
   **5 、如果使用物理引擎，可以把物理引擎的 step 间隔调大。**  
 
