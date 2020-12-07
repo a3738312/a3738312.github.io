@@ -6,4 +6,4 @@
 * [安卓原生](./android.md)
 * [小游戏](./instancegame.md)
 * [微信小游戏的优化](./wechat.md)
-* [GitBook相关](./gitbook.md)
+* [GitHub相关](./github.md)
