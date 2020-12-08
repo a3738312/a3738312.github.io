@@ -12,7 +12,7 @@
 * `git config --global user.name` 可以设置全局 `git` 用户名，该信息会在提交时附带  
 * `git config --global user.email` 可以设置全局 `git` 邮箱，该信息会在提交时附带  
 * 可以通过先在 `Github` web修改一些东西提交，本地查看提交记录来得到 `Github` 上配置的用户名和邮箱，来防止网页提交和本地提交变为两个用户  
-    ![](./image/github1.png)  
+    ![](./image/github1.jpg)  
 * `git config --global http.proxy http://...` 可以设置http代理
 * `git config --global https.proxy https://...` 可以设置https代理
 

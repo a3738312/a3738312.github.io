@@ -52,7 +52,7 @@ _来自网友的pdf，不知道作者是谁_
   ```
 * 场景的资源释放只需要勾选一个属性就可以了：  
 
-  ![](./image/wechat03.png)  
+  ![](./image/wechat03.jpg)  
 
 ## 二、性能优化
 
@@ -86,7 +86,7 @@ _来自网友的pdf，不知道作者是谁_
 
   **4 、 Settings.js 文件优化，可以自己写脚本把 md5Map 里面的 rawAssets 的 md5 映射存到原本的 rawAssets 中，然后在 boot.js 里面还原 md5Map 即可。优化之后的 Settings.js 长这个样子：**  
 
-  ![](./image/wechat04.png)  
+  ![](./image/wechat04.jpg)  
 
   **boot.js 里面还原 md5AssetMap 的的代码：**  
   ```js
