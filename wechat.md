@@ -8,7 +8,7 @@ _来自网友的pdf，不知道作者是谁_
 **1 、优化双份纹理（必做！）**
 
 * 在你的项目中添加如下代码，就可以减少大量内存：  
-  ```js
+  ```typescript
   cc.game.once(cc.game.EVENT_RENDERER_INITED, () => {
       let oldHandleLoadedTexture = cc.Texture2D.prototype.handleLoadedTexture;
       let optimizedHandleTexture = function (premultiplied) {
@@ -39,7 +39,7 @@ _来自网友的pdf，不知道作者是谁_
 * 对于二级弹框和场景资源释放，可以使用 cc.loader.release 接口配合场景的“自动释放”属性来实现。  
 * 对于一个二级面板，我们可以约定这个二级面板引用的资源范围。我们把游戏中共用的资源放到 Common 图集中，把每个二级面板的资源放到自己的图集中。当释放资源的时候，我们可以通过 `cc.loader.getDependsRecursively( 'prefab url' )` API 拿到面板 Prefab 所引用的所有资源，然后对这个返回的资源数组做资源释放。  
 * 比如，在我们的项目里面，释放资源的时候，我排除了 Common ， Main ， Game/FX 目录下面的图集资源：  
-  ```js
+  ```typescript
   releaseAllDeps(deps) {
       deps.forEach((item) => {
           if (item.indexOf('UITexture/Common') === -1
@@ -89,7 +89,7 @@ _来自网友的pdf，不知道作者是谁_
   ![](./image/wechat04.jpg)  
 
   **boot.js 里面还原 md5AssetMap 的的代码：**  
-  ```js
+  ```typescript
   rawAssets = _CCSettings.rawAssets;
   assetTypes = _CCSettings.assetTypes;
   md5AssetsMap = _CCSettings.md5AssetsMap;

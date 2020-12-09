@@ -36,7 +36,7 @@
 * VIVO小游戏的远程音频需同OPPO一样处理
 * VIVO小游戏在游戏里播放 `cc.AudioClip` 会出现没有声音的问题，需要修改源码：
 
-  ```javascript
+  ```typescript
     //调整下 [creator目录]/resource/builtin/vivo-adapter/engien/jsb-audio.js 的接口
     //cc.audioEngine.playEffect 为
     cc.audioEngine.playEffect = function (filePath, loop) {
