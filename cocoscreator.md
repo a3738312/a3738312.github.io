@@ -52,7 +52,8 @@
   ```
   
 ### Shader
-[OpenGL ES](https://www.jianshu.com/p/99daa25b4573)
+[OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
+[Learn OpenGL CN](https://learnopengl-cn.github.io/)  
 * 大致流程  
   1. 获取图像数据流
   2. `顶点处理` 根据投影等矩阵变换改变顶点位置，并根据顶点位置来计算纹理坐标的位置
