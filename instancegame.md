@@ -12,7 +12,6 @@
 * CocosCreator 2.4.2 之前的版本直接发布微信小游戏，之后可以直接发布字节跳动小游戏
 
 ## OPPO小游戏  
-* OPPO 小游戏发布需要将录屏和更多游戏按钮去掉，在结算页添加结算页互推
 * 远程音频下载后用本地地址或者直接使用远程地址的音效不能用 Cocos Creator 自己的音频引擎播放，需要使用 OPPO 的 `InnerAudioContext` 来播放
 
   ```typescript
