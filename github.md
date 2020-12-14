@@ -28,6 +28,3 @@
 [Gitbook官方文档(英文)](https://docs.gitbook.com/)  
 [GitBook的安装和使用](https://www.jianshu.com/p/e86c702578df)  
 [使用GitBook发布文章](https://learn-gitbook.gitbook.io/gitbook/fa-bu)
-
-
-1
