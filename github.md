@@ -13,6 +13,13 @@
 * `git config --global user.email` 可以设置全局 `git` 邮箱，该信息会在提交时附带  
 * 可以通过先在 `Github` web修改一些东西提交，本地查看提交记录来得到 `Github` 上配置的用户名和邮箱，来防止网页提交和本地提交变为两个用户  
     ![](./image/github1.jpg)  
+* 在 `Github` 的 `Setting` -> `Email` 中找到 
+  >- [x] Keep my email addresses private  
+  
+    改为
+  >- [ ] Keep my email addresses private  
+
+    即可直接关闭邮箱加密，直接使用设置中的邮箱显示
 * `git config --global http.proxy http://...` 可以设置http代理
 * `git config --global https.proxy https://...` 可以设置https代理
 
