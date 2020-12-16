@@ -264,6 +264,30 @@
 <li><code>CCLabel</code> &#x7684; <code>string</code> &#x4FEE;&#x6539;&#x540E;&#x8282;&#x70B9;&#x5927;&#x5C0F;&#x4F1A;&#x5728;&#x4E0B;&#x4E00;&#x5E27;&#x624D;&#x5237;&#x65B0;&#xFF0C;2.2&#x7248;&#x672C;&#x524D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>label._updateRenderData()</code> &#x6765;&#x624B;&#x52A8;&#x5237;&#x65B0;&#x8282;&#x70B9;&#x5927;&#x5C0F;&#xFF0C;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>label._forceUpdateRenderData()</code> &#x6765;&#x5237;&#x65B0;&#x3002;&#x5237;&#x65B0;&#x540E;&#x83B7;&#x53D6;&#x8282;&#x70B9;&#x5927;&#x5C0F;&#x5C31;&#x662F;&#x4FEE;&#x6539;&#x5185;&#x5BB9;&#x540E;&#x6B63;&#x786E;&#x7684;&#x5927;&#x5C0F;</li>
 <li><del><code>cc.audioEngine.setFinishCallback(id, null);</code></del>//&#x8BBE;&#x7F6E;&#x5B8C;&#x6210;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x5199;null&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x539F;&#x751F;&#x5E73;&#x53F0;&#x62A5;&#x9519;</li>
 <li>Spine &#x9AA8;&#x9ABC;&#x52A8;&#x753B;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x8F68;&#x9053;&#x64AD;&#x653E;&#x52A8;&#x753B;&#x6765;&#x5B9E;&#x73B0;&#x52A8;&#x753B;&#x6DF7;&#x5408;&#x6548;&#x679C;&#xFF0C;&#x8F68;&#x9053;&#x52A8;&#x753B;&#x64AD;&#x653E;&#x5B8C;&#x4E4B;&#x540E;&#x9700;&#x8981;&#x6E05;&#x9664;&#x8F68;&#x9053;&#x52A8;&#x753B;&#xFF0C;&#x5426;&#x5219;&#x52A8;&#x753B;&#x4F1A;&#x4E00;&#x76F4;&#x8986;&#x76D6;&#x5728;&#x4E0A;&#x9762;&#x3002;&#x4F7F;&#x7528; <code>setTrackCompleteListener</code> &#x6765;&#x76D1;&#x542C;&#x52A8;&#x753B;&#x662F;&#x5426;&#x64AD;&#x653E;&#x5B8C;&#x6BD5;&#xFF0C; <code>setTrackEndListener</code> &#x76D1;&#x542C;&#x5230;&#x540E; <code>clearTrack</code> &#x65E0;&#x6548;&#x3002;</li>
+<li>CCClass &#x4E2D;&#x5C5E;&#x6027; <code>properties</code> &#x5B9A;&#x4E49; <code>get/set</code> &#x65B9;&#x6CD5;<pre class="language-"><code class="lang-Javascript">  properties: {
+      color: {
+          default: cc.Color.WHITE,
+          type: cc.Color
+          get: function () {
+            return this.color;
+          },
+          set: function (value) {
+            this.color = value;
+          }
+      },
+  }
+</code></pre>
+</li>
+<li>CCClass &#x4E2D;&#x5C5E;&#x6027; <code>property</code> &#x5B9A;&#x4E49; <code>get/set</code> &#x65B9;&#x6CD5;<pre class="language-"><code class="lang-Typescript">  private _color: cc.Color = cc.Color.WHITE;
+  @property({ type: cc.Color })
+  get color() {
+      return this._color;
+  }
+  set color(color: cc.Color) {
+      this._color = color;
+  }
+</code></pre>
+</li>
 </ul>
 <h3 id="assebundle">AsseBundle</h3>
 <ul>
@@ -414,7 +438,7 @@ bundle<span class="token punctuation">.</span><span class="token function">load<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Cocos Creator","level":"1.3","depth":1,"next":{"title":"安卓原生","level":"1.4","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"previous":{"title":"关于JS和TS","level":"1.2","depth":1,"path":"lan.md","ref":"./lan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","-highlight","prism","prism-themes","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"]},"advanced-emoji":{"embedEmojis":false},"search-plus":{},"prism-themes":{},"back-to-top-button":{},"hide-published-with":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"cocoscreator.md","mtime":"2020-12-10T02:37:52.033Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-16T07:55:41.271Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Cocos Creator","level":"1.3","depth":1,"next":{"title":"安卓原生","level":"1.4","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"previous":{"title":"关于JS和TS","level":"1.2","depth":1,"path":"lan.md","ref":"./lan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","-highlight","prism","prism-themes","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"]},"advanced-emoji":{"embedEmojis":false},"search-plus":{},"prism-themes":{},"back-to-top-button":{},"hide-published-with":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"cocoscreator.md","mtime":"2020-12-16T08:57:53.470Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-16T08:58:01.209Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

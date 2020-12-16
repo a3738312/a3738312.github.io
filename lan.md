@@ -48,4 +48,3 @@
     console.log(Type[Type.Type1]);//output: Type1
     console.log(Type[1]);//output: Type2
     ```
-
