@@ -39,3 +39,13 @@
     //output object is {}
   ```
 
+* 如果想打印 Typescript 中定义的枚举名，可以这样
+    ```typescript
+    enum Type {
+      Type1 = 0,
+      Type2 = 1
+    }
+    console.log(Type[Type.Type1]);//output: Type1
+    console.log(Type[1]);//output: Type2
+    ```
+
