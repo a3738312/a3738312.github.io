@@ -76,6 +76,7 @@
   }
   console.log(tmpArr);//["path1","path2","path3/path"];
   ```
+* AssetBundle 使用 `loadDir` 加载文件夹时，如果文件夹下有子文件夹，会导致进度回调中的 `total` 字段随着加载增加，可能会出现 `finish/total` 获取的进度不准确
   
 ### Shader
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
