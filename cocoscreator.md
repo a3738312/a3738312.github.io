@@ -31,8 +31,24 @@
     //or
     @property(cc.Node)
     test: cc.Node = null;
+    //数组
+    @property({ type: cc.Node })
+    private test: cc.Node[] = [];
+    //or
+    @property([cc.Node])
+    private test: cc.Node[] = [];
+    //如果将 type 设置为枚举，则在属性编辑器中会显示一个下拉框
+    enum TestEnum {
+      Value1 = 0,
+      Value2 = 1
+    }
+    ...
+    @property({ type: cc.Enum(TestEnum) })
+    private test: TestEnum = TestEnum.Value1;
   ```  
   ![](./image/property1.jpg)  
+  ![](./image/property12.jpg)  
+  ![](./image/property11.jpg)  
 * `visible` 在 **属性性检查器** 中显示或隐藏
   ```Typescript
     isShow: boolean = false;
