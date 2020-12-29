@@ -14,12 +14,11 @@
 * Typescript可以这样重载方法
 
   ```typescript
-    let a: any[] = [1, "ss", 2, false, new Object()];
-    function toString(target: number): string;
-    function toString(target: string): string;
-    function toString(target: boolean): string;
-    function toString(target: object): string;
-    function toString(target): any {
+    private toString(target: number): string;
+    private toString(target: string): string;
+    private toString(target: boolean): string;
+    private toString(target: object): string;
+    private toString(target): any {
         if (typeof target == "number")
             return "number is " + target;
         if (typeof target == "string")
@@ -29,6 +28,8 @@
         if (typeof target == "object")
             return "object is " + JSON.stringify(target);
     }
+    ...
+    let a: any[] = [1, "ss", 2, false, new Object()];
     for (let obj of a) {
         cc.log(toString(obj));
     }

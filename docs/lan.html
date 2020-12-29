@@ -248,12 +248,11 @@
 </code></pre>
 </li>
 <li><p>Typescript&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x91CD;&#x8F7D;&#x65B9;&#x6CD5;</p>
-<pre><code class="lang-typescript">  <span class="hljs-keyword">let</span> a: <span class="hljs-built_in">any</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;ss&quot;</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>()];
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toString</span>(<span class="hljs-params">target: <span class="hljs-built_in">number</span></span>): <span class="hljs-title">string</span></span>;
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toString</span>(<span class="hljs-params">target: <span class="hljs-built_in">string</span></span>): <span class="hljs-title">string</span></span>;
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toString</span>(<span class="hljs-params">target: <span class="hljs-built_in">boolean</span></span>): <span class="hljs-title">string</span></span>;
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toString</span>(<span class="hljs-params">target: object</span>): <span class="hljs-title">string</span></span>;
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toString</span>(<span class="hljs-params">target</span>): <span class="hljs-title">any</span> </span>{
+<pre><code class="lang-typescript">  <span class="hljs-keyword">private</span> toString(target: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">private</span> toString(target: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">private</span> toString(target: <span class="hljs-built_in">boolean</span>): <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">private</span> toString(target: object): <span class="hljs-built_in">string</span>;
+  <span class="hljs-keyword">private</span> toString(target): <span class="hljs-built_in">any</span> {
       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;number&quot;</span>)
           <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;number is &quot;</span> + target;
       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;string&quot;</span>)
@@ -263,6 +262,8 @@
       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;object&quot;</span>)
           <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;object is &quot;</span> + <span class="hljs-built_in">JSON</span>.stringify(target);
   }
+  ...
+  <span class="hljs-keyword">let</span> a: <span class="hljs-built_in">any</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;ss&quot;</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>()];
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> obj of a) {
       cc.log(toString(obj));
   }
@@ -342,7 +343,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"关于JS和TS","level":"1.2","depth":1,"next":{"title":"Cocos Creator","level":"1.3","depth":1,"path":"cocoscreator.md","ref":"./cocoscreator.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"./README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"lan.md","mtime":"2020-12-16T08:50:24.031Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-29T04:22:17.449Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"关于JS和TS","level":"1.2","depth":1,"next":{"title":"Cocos Creator","level":"1.3","depth":1,"path":"cocoscreator.md","ref":"./cocoscreator.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"./README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"lan.md","mtime":"2020-12-29T09:41:52.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-29T09:44:03.857Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
