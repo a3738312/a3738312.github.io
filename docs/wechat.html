@@ -25,11 +25,11 @@
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-vsc-dark-plus.css">
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-back-to-top-button/plugin.css">
                 
             
                 
-                <link rel="stylesheet" href="gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
                 
             
                 
@@ -246,16 +246,16 @@
 <h3 id="1-&#x4F18;&#x5316;&#x53CC;&#x4EFD;&#x7EB9;&#x7406;&#xFF08;&#x5FC5;&#x505A;&#xFF01;&#xFF09;">1. &#x4F18;&#x5316;&#x53CC;&#x4EFD;&#x7EB9;&#x7406;&#xFF08;&#x5FC5;&#x505A;&#xFF01;&#xFF09;</h3>
 <ul>
 <li><p>&#x5728;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x6DFB;&#x52A0;&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x5927;&#x91CF;&#x5185;&#x5B58;&#xFF1A;  </p>
-<pre class="language-"><code class="lang-typescript">cc<span class="token punctuation">.</span>game<span class="token punctuation">.</span><span class="token function">once</span><span class="token punctuation">(</span>cc<span class="token punctuation">.</span>game<span class="token punctuation">.</span><span class="token constant">EVENT_RENDERER_INITED</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> oldHandleLoadedTexture <span class="token operator">=</span> cc<span class="token punctuation">.</span>Texture2D<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>handleLoadedTexture<span class="token punctuation">;</span>
-    <span class="token keyword">let</span> <span class="token function-variable function">optimizedHandleTexture</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>premultiplied<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">oldHandleLoadedTexture</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> premultiplied<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>_image<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
-        <span class="token comment">//for cocos creator 1.4</span>
-        <span class="token comment">//this._htmlElementObj.src = &apos;&apos;;</span>
-    <span class="token punctuation">}</span>
-    cc<span class="token punctuation">.</span>Texture2D<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>handleLoadedTexture <span class="token operator">=</span> optimizedHandleTexture<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<pre><code class="lang-typescript">cc.game.once(cc.game.EVENT_RENDERER_INITED, () =&gt; {
+    <span class="hljs-keyword">let</span> oldHandleLoadedTexture = cc.Texture2D.prototype.handleLoadedTexture;
+    <span class="hljs-keyword">let</span> optimizedHandleTexture = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">premultiplied</span>) </span>{
+        oldHandleLoadedTexture.call(<span class="hljs-keyword">this</span>, premultiplied);
+        <span class="hljs-keyword">this</span>._image.src = <span class="hljs-string">&apos;&apos;</span>;
+        <span class="hljs-comment">//for cocos creator 1.4</span>
+        <span class="hljs-comment">//this._htmlElementObj.src = &apos;&apos;;</span>
+    }
+    cc.Texture2D.prototype.handleLoadedTexture = optimizedHandleTexture;
+});
 </code></pre>
 </li>
 <li><p>&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x539F;&#x7406;&#x662F;&#xFF0C;&#x5F53; Creator &#x4F7F;&#x7528; DOM &#x7684; Image &#x5BF9;&#x8C61;&#x53BB;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FAE;&#x4FE1;&#x5E95;&#x5C42;&#x7684;&#x5F15;&#x64CE;&#x4F1A;&#x89E3;&#x7801;&#x56FE;&#x7247;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6;&#x5F80; GPU &#x4E0A;&#x4F20;&#x4E00;&#x4EFD;&#x7EB9;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x5F15;&#x64CE;&#x7684; Sprite &#x5728;&#x6E32;&#x67D3;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A; DOM Image &#x518D;&#x751F;&#x6210;&#x4E00;&#x4EFD; GPU &#x7EB9;&#x7406;&#x5E76;&#x4E0A;&#x4F20;&#xFF0C;&#x5BFC;&#x81F4; GPU &#x91CC;&#x9762;&#x5B58;&#x5728;&#x53CC;&#x4EFD;&#x7EB9;&#x7406;&#x3002;&#x4F7F;&#x7528; <code>Image.scr = &apos;&apos;</code> &#x53EF;&#x4EE5;&#x91CA;&#x653E;&#x6389; GPU &#x91CC;&#x9762;&#x591A;&#x51FA;&#x6765;&#x7684;&#x4E00;&#x4EFD;&#x7EB9;&#x7406;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x4F1A;&#x91CA;&#x653E; CPU &#x7AEF;&#x89E3;&#x7801;&#x7684;&#x7EB9;&#x7406;&#x5185;&#x5B58;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x5BF9; Image &#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x4E86; <code>src = &apos;&apos;</code> &#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E2A; Image &#x5BF9;&#x8C61;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x5C31;&#x91CA;&#x653E;&#x5E72;&#x51C0;&#x4E86;&#x3002;  </p>
@@ -276,15 +276,15 @@
 <ul>
 <li>&#x5BF9;&#x4E8E;&#x4E8C;&#x7EA7;&#x5F39;&#x6846;&#x548C;&#x573A;&#x666F;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; cc.loader.release &#x63A5;&#x53E3;&#x914D;&#x5408;&#x573A;&#x666F;&#x7684;&#x201C;&#x81EA;&#x52A8;&#x91CA;&#x653E;&#x201D;&#x5C5E;&#x6027;&#x6765;&#x5B9E;&#x73B0;&#x3002;  </li>
 <li>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x4E8C;&#x7EA7;&#x9762;&#x677F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7EA6;&#x5B9A;&#x8FD9;&#x4E2A;&#x4E8C;&#x7EA7;&#x9762;&#x677F;&#x5F15;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x8303;&#x56F4;&#x3002;&#x6211;&#x4EEC;&#x628A;&#x6E38;&#x620F;&#x4E2D;&#x5171;&#x7528;&#x7684;&#x8D44;&#x6E90;&#x653E;&#x5230; Common &#x56FE;&#x96C6;&#x4E2D;&#xFF0C;&#x628A;&#x6BCF;&#x4E2A;&#x4E8C;&#x7EA7;&#x9762;&#x677F;&#x7684;&#x8D44;&#x6E90;&#x653E;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x56FE;&#x96C6;&#x4E2D;&#x3002;&#x5F53;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>cc.loader.getDependsRecursively( &apos;prefab url&apos; )</code> API &#x62FF;&#x5230;&#x9762;&#x677F; Prefab &#x6240;&#x5F15;&#x7528;&#x7684;&#x6240;&#x6709;&#x8D44;&#x6E90;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x8FD9;&#x4E2A;&#x8FD4;&#x56DE;&#x7684;&#x8D44;&#x6E90;&#x6570;&#x7EC4;&#x505A;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#x3002;  </li>
-<li>&#x6BD4;&#x5982;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x91CC;&#x9762;&#xFF0C;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x6392;&#x9664;&#x4E86; Common &#xFF0C; Main &#xFF0C; Game/FX &#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x56FE;&#x96C6;&#x8D44;&#x6E90;&#xFF1A;  <pre class="language-"><code class="lang-typescript"><span class="token function">releaseAllDeps</span><span class="token punctuation">(</span>deps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    deps<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&apos;UITexture/Common&apos;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span>
-            <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&apos;UITexture/Main&apos;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span>
-            <span class="token operator">&amp;&amp;</span> item<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">&apos;UITexture/Game/FX&apos;</span><span class="token punctuation">)</span> <span class="token operator">===</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            cc<span class="token punctuation">.</span>loader<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<li>&#x6BD4;&#x5982;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x9879;&#x76EE;&#x91CC;&#x9762;&#xFF0C;&#x91CA;&#x653E;&#x8D44;&#x6E90;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x6392;&#x9664;&#x4E86; Common &#xFF0C; Main &#xFF0C; Game/FX &#x76EE;&#x5F55;&#x4E0B;&#x9762;&#x7684;&#x56FE;&#x96C6;&#x8D44;&#x6E90;&#xFF1A;  <pre><code class="lang-typescript">releaseAllDeps(deps) {
+    deps.forEach((item) =&gt; {
+        <span class="hljs-keyword">if</span> (item.indexOf(<span class="hljs-string">&apos;UITexture/Common&apos;</span>) === <span class="hljs-number">-1</span>
+            &amp;&amp; item.indexOf(<span class="hljs-string">&apos;UITexture/Main&apos;</span>) === <span class="hljs-number">-1</span>
+            &amp;&amp; item.indexOf(<span class="hljs-string">&apos;UITexture/Game/FX&apos;</span>) === <span class="hljs-number">-1</span>) {
+            cc.loader.release(item);
+        }
+    });
+}
 </code></pre>
 </li>
 <li><p>&#x573A;&#x666F;&#x7684;&#x8D44;&#x6E90;&#x91CA;&#x653E;&#x53EA;&#x9700;&#x8981;&#x52FE;&#x9009;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF1A;  </p>
@@ -314,22 +314,22 @@
 <p><strong>4.  Settings.js &#x6587;&#x4EF6;&#x4F18;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x5199;&#x811A;&#x672C;&#x628A; md5Map &#x91CC;&#x9762;&#x7684; rawAssets &#x7684; md5 &#x6620;&#x5C04;&#x5B58;&#x5230;&#x539F;&#x672C;&#x7684; rawAssets &#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5728; boot.js &#x91CC;&#x9762;&#x8FD8;&#x539F; md5Map &#x5373;&#x53EF;&#x3002;&#x4F18;&#x5316;&#x4E4B;&#x540E;&#x7684; Settings.js &#x957F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#xFF1A;</strong>  </p>
 <p><img src="image/wechat04.jpg" alt="">  </p>
 <p><strong>boot.js &#x91CC;&#x9762;&#x8FD8;&#x539F; md5AssetMap &#x7684;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</strong>  </p>
-<pre class="language-"><code class="lang-typescript">rawAssets <span class="token operator">=</span> _CCSettings<span class="token punctuation">.</span>rawAssets<span class="token punctuation">;</span>
-assetTypes <span class="token operator">=</span> _CCSettings<span class="token punctuation">.</span>assetTypes<span class="token punctuation">;</span>
-md5AssetsMap <span class="token operator">=</span> _CCSettings<span class="token punctuation">.</span>md5AssetsMap<span class="token punctuation">;</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> mount <span class="token keyword">in</span> rawAssets<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> entries <span class="token operator">=</span> rawAssets<span class="token punctuation">[</span>mount<span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> uuid <span class="token keyword">in</span> entries<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> entry <span class="token operator">=</span> entries<span class="token punctuation">[</span>uuid<span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">let</span> <span class="token keyword">type</span> <span class="token operator">=</span> entry<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> <span class="token keyword">type</span> <span class="token operator">===</span> <span class="token string">&apos;number&apos;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            entry<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> assetTypes<span class="token punctuation">[</span><span class="token keyword">type</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>entry<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> entry<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">&apos;string&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            md5AssetsMap<span class="token punctuation">[</span><span class="token string">&apos;assets/&apos;</span> <span class="token operator">+</span> entry<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> entry<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<pre><code class="lang-typescript">rawAssets = _CCSettings.rawAssets;
+assetTypes = _CCSettings.assetTypes;
+md5AssetsMap = _CCSettings.md5AssetsMap;
+<span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> mount <span class="hljs-keyword">in</span> rawAssets) {
+    <span class="hljs-keyword">let</span> entries = rawAssets[mount];
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> uuid <span class="hljs-keyword">in</span> entries) {
+        <span class="hljs-keyword">let</span> entry = entries[uuid];
+        <span class="hljs-keyword">let</span> <span class="hljs-keyword">type</span> = entry[<span class="hljs-number">1</span>];
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> <span class="hljs-keyword">type</span> === <span class="hljs-string">&apos;number&apos;</span>) {
+            entry[<span class="hljs-number">1</span>] = assetTypes[<span class="hljs-keyword">type</span>];
+        }
+        <span class="hljs-keyword">if</span> (entry[<span class="hljs-number">2</span>] &amp;&amp; (<span class="hljs-keyword">typeof</span> entry[<span class="hljs-number">2</span>] === <span class="hljs-string">&apos;string&apos;</span>)) {
+            md5AssetsMap[<span class="hljs-string">&apos;assets/&apos;</span> + entry[<span class="hljs-number">0</span>]] = entry[<span class="hljs-number">2</span>];
+        }
+    }
+}
 </code></pre>
 <p><strong>5. &#x4E00;&#x5B9A;&#x8981;&#x4F7F;&#x7528; release &#x6A21;&#x5F0F;&#x6784;&#x5EFA;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6784;&#x5EFA;&#x51FA;&#x6765;&#x7684; json &#x8D44;&#x6E90;&#x4F1A;&#x538B;&#x7F29;&#xFF0C; Settings.js &#x4E5F;&#x4F1A;&#x4F18;&#x5316;&#x3002;</strong>  </p>
 <p><strong>6. &#x5BF9;&#x4E8E;&#x5F15;&#x64CE;&#x4E0D;&#x4F7F;&#x7528;&#x7684;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x88C1;&#x526A;&#xFF0C;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x5F15;&#x64CE;&#x5927;&#x5C0F;</strong></p>
@@ -394,7 +394,7 @@ md5AssetsMap <span class="token operator">=</span> _CCSettings<span class="token
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"微信小游戏的优化","level":"1.6","depth":1,"next":{"title":"GitHub相关","level":"1.7","depth":1,"path":"github.md","ref":"./github.md","articles":[]},"previous":{"title":"小游戏","level":"1.5","depth":1,"path":"instancegame.md","ref":"./instancegame.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","-highlight","prism","prism-themes","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prism-themes/themes/prism-vsc-dark-plus.css"]},"advanced-emoji":{"embedEmojis":false},"search-plus":{},"prism-themes":{},"back-to-top-button":{},"hide-published-with":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"wechat.md","mtime":"2020-12-10T01:42:13.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-25T10:42:18.858Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"微信小游戏的优化","level":"1.6","depth":1,"next":{"title":"GitHub相关","level":"1.7","depth":1,"path":"github.md","ref":"./github.md","articles":[]},"previous":{"title":"小游戏","level":"1.5","depth":1,"path":"instancegame.md","ref":"./instancegame.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"wechat.md","mtime":"2020-12-10T01:42:13.552Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-12-29T04:22:17.449Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

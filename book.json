@@ -7,17 +7,7 @@
         "-sharing",
         "-lunr",
         "search-plus",
-        "-highlight",
-        "prism",
-        "prism-themes",
         "back-to-top-button",
         "hide-published-with"
-    ],
-    "pluginsConfig": {
-        "prism": {
-            "css": [
-                "prism-themes/themes/prism-vsc-dark-plus.css"
-            ]
-        }
-    }
+    ]
 }
