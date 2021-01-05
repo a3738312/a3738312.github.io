@@ -1,4 +1,5 @@
 # AsseBundle
+* 2.4.x 版本的 AssetBundle 为了兼容旧版本，也保留有 `cc.resources`，但resources也是一个内置 Bundle，会在引擎加载时将内部资源全部加载完，因此若旧版本升级到 2.4 且资源全都在 resources 内动态加载，则需要将需要将 resources 文件夹改为别的名字并配置成 Bundle 远程包
 * 2.4.x 版本的 `cc.assetManager.loadBundle` 只会加载 Bundle 的配置文件，加载完毕会返回一个 Bundle 对象，可以通过这个对象来加载 Bundle 内的资源:
   ```typescript
   //cc.Asset 为指定类型，如果加载文件夹，将会只返回指定类型的资源
@@ -39,3 +40,4 @@
   ```
 * AssetBundle 使用 `loadDir` 加载文件夹时，如果文件夹下有子文件夹，会导致进度回调中的 `total` 字段随着加载增加，会出现 `finish/total` 获取的进度不准确
 * `cc.assetManager.bundles` 可以查看当前已加载的所有 `bundle`  
+* AssetBundle 加载的代码资源无法清除缓存，加载的 Bundle 内若有与现有脚本同名的脚本则会报错
