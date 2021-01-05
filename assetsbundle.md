@@ -41,3 +41,4 @@
 * AssetBundle 使用 `loadDir` 加载文件夹时，如果文件夹下有子文件夹，会导致进度回调中的 `total` 字段随着加载增加，会出现 `finish/total` 获取的进度不准确
 * `cc.assetManager.bundles` 可以查看当前已加载的所有 `bundle`  
 * AssetBundle 加载的代码资源无法清除缓存，加载的 Bundle 内若有与现有脚本同名的脚本则会报错
+* AssetBundle 打包的时候需要设置目标平台为对应平台，否则可能出现资源加载问题
