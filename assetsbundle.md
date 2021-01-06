@@ -20,7 +20,7 @@
     }, (error: Error, asset: cc.Asset) => {
     });
   ```  
-  但是因为下载远程文件用的 `XMLHttpRequest` 所以需要服务器添加对应设置才可以获取。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
+  但是因为下载远程文件用的 `XMLHttpRequest` 所以必须在服务器端做好相关配置。如果没有办法添加则可以继续使用 `cc.loader.load` 来加载远程资源，截至2.4.3该API还没有移除。  
 * `cc.assetManager.loadBundle` 可以加载本地 Bundle ，开发时可以直接构建然后加载  AssetBundle 包进行测试
   ```Typescript
     cc.assetManager.loadBundle("D:/build/Bundle", null, (err: Error, bundle: cc.AssetManager.Bundle) => { 
