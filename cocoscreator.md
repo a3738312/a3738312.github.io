@@ -23,6 +23,7 @@
 * `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 * ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写null，会导致原生平台报错
 * Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕
+* 在2.4.3中发现，Collider 碰撞组件修改 `size` 或者 `offset` 之后调用 `apply()` 应用修改时，会让碰撞**组件启用**，效果**等同于** `enabled` 设置为 `true`；但实际上 `enabled` 的值**并不会发生变化**，所以如果碰撞组件在关闭的情况下修改大小位置等并应用，且在之后马上设置 `enabled` 为 `false` 会出现没有效果的问题，在 `enabled` 为 `false` 的情况下修改碰撞组件参数，不需要调用 `apply()`，在下次 `enabled` 值设置为 `true` 会应用
 ### Shader
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
 [Learn OpenGL CN](https://learnopengl-cn.github.io/)  
