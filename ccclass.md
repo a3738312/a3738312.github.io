@@ -13,6 +13,7 @@
     @property([cc.Node])
     private test: cc.Node[] = [];
     //如果将 type 设置为枚举，则在属性编辑器中会显示一个下拉框
+    //枚举的值不支持字符串
     enum TestEnum {
       Value1 = 0,
       Value2 = 1
