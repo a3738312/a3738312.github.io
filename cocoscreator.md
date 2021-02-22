@@ -13,7 +13,7 @@
 * CocosCreator 中 Java 和 JS 互相调用  
   > [如何在 Android 平台上使用 JavaScript 直接调用 Java 方法](https://docs.cocos.com/creator/manual/zh/advanced-topics/java-reflection.html?h=java)  
   >> _**\(特别注意String的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_  
-* 在 TS 中引用 JS `import js = requrie("./js")`
+* 在 TS 中引用 JS `import js = require("./js")`
 * 在 JS 中引用 TS `import ts from "./ts";`
 * 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
 * TS 循环引用会报错  
