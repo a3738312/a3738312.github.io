@@ -32,6 +32,8 @@
   可以通过改为以下设置实现颜色加深  
   Src Blend Factor `SRC_ALPHA`  
   Dst Blend Factor `DST_COLOR`  
+* 骨骼动画导出二进制可以减少骨骼动画的大小，spine骨骼动画导出时后缀需要改为 `.skel`  
+  若在安卓端遇到 `T &spine::Vector<char *>::operator[](size_t)` 类似的报错，有可能是导出问题，取消勾选 `警告`、`动画清除`、`非必要的数据` 重新导出即可
 
 ### Shader
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
