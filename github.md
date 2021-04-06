@@ -6,7 +6,7 @@
 ## 如何使用GitHub
 [github怎么使用](https://www.php.cn/tool/git/418373.html)  
 ## 访问GitHub慢怎么办
-[国内加速访问Github的办法，超级简单](https://zhuanlan.zhihu.com/p/65154116)(实测访问并没有快很多，老老实实加速器)
+修改DNS设置，将首选DNS改为 `1.1.1.1` 备用DNS改为 `1.1.0.0` 即可
 
 ## Github配置
 * `git config --global user.name` 可以设置全局 `git` 用户名，该信息会在提交时附带  
