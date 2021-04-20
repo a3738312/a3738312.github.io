@@ -25,6 +25,7 @@
 * Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕
 * 在项目中设置好布局之后，在项目的 `项目目录/local/layout.editor.json` 找到 `layout` 字段，将字段内容复制到 `编辑器目录/resources/static/layout` 中找到 `landscape.json` 并拷贝进去，即可替换
 * 在2.4.3中发现，Collider 碰撞组件修改 `size` 或者 `offset` 之后调用 `apply()` 应用修改时，会让碰撞**组件启用**，效果**等同于** `enabled` 设置为 `true`；但实际上 `enabled` 的值**并不会发生变化**，所以如果碰撞组件在关闭的情况下修改大小位置等并应用，且在之后马上设置 `enabled` 为 `false` 会出现没有效果的问题，在 `enabled` 为 `false` 的情况下修改碰撞组件参数，不需要调用 `apply()`，在下次 `enabled` 值设置为 `true` 会应用
+* 对于刚体碰撞反馈的缩放，最好采取显示节点缩放，而不是对有刚体的节点直接缩放。因为直接对刚体节点缩放时，会重新构建这个刚体依赖的全部碰撞体  
 * 2.x 中，通过修改 `...\resources\static\template\new-script.ts` 可以自定义创建脚本模板
 * 可以通过在所有UI顶部叠加一层白色`Sprite`来增加整个界面的亮度，将`Sprite`的混合模式设置为  
   Src Blend Factor `SRC_ALPHA`  
