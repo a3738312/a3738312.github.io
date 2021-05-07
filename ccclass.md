@@ -25,6 +25,12 @@
   ![](./image/property1.jpg)  
   ![](./image/property12.jpg)  
   ![](./image/property11.jpg)  
+  ```Typescript
+    //可以通过使用 cc.Component.EventHandler 类型，添加一个和Button一样的事件回调
+    @property(cc.Component.EventHandler)
+    private callback: cc.Component.EventHandler = null;
+  ```
+  ![](./image/property13.png)
 * `visible` 在 **属性性检查器** 中显示或隐藏
   ```Typescript
     isShow: boolean = false;
