@@ -39,6 +39,12 @@
 -   骨骼动画导出二进制可以减少骨骼动画的大小，spine 骨骼动画导出时后缀需要改为 `.skel`  
     若在安卓端遇到 `T &spine::Vector<char *>::operator[](size_t)` 类似的报错，有可能是导出问题，取消勾选 `警告`、`动画清除`、`非必要的数据` 重新导出即可
 
+-   透明边图片出现黑边可以这样去除黑边
+    -   勾选纹理的透明预乘
+        ![](./image/cocos01.png)
+    -   修改 Sprite 的 Blend Factor 为 ONE
+        ![](./image/cocos02.png)
+
 ### Shader
 
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
