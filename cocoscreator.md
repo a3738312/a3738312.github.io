@@ -44,7 +44,7 @@
         ![](./image/cocos01.png)
     -   修改 Sprite 的 Blend Factor 为 ONE
         ![](./image/cocos02.png)
-
+- IOS上 `event.getID()` 获取当前触点ID和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
 ### Shader
 
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
