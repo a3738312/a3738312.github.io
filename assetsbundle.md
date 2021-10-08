@@ -38,6 +38,7 @@
   }
   console.log(tmpArr);//["path1","path2","path3/path"];
   ```
+* 通过 `bundle` 对象加载的资源，需要自己管理释放；资源加载后默认引用计数为0，使用 `asset.addRef()` 可以增加资源引用，使用 `asset.decRef()` 可以减少资源引用，当引用计数减少到0时，会自动尝试释放资源
 * AssetBundle 使用 `loadDir` 加载文件夹时，如果文件夹下有子文件夹，会导致进度回调中的 `total` 字段随着加载增加，会出现 `finish / total` 获取的进度不准确
 * `cc.assetManager.bundles` 可以查看当前已加载的所有 `bundle`  
 * AssetBundle 加载的代码资源无法清除缓存，加载的 Bundle 内若有与现有脚本同名的脚本则会报错
