@@ -44,7 +44,8 @@
         ![](./image/cocos01.png)
     -   修改 Sprite 的 Blend Factor 为 ONE
         ![](./image/cocos02.png)
-- IOS上 `event.getID()` 获取当前触点ID和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
+-   IOS 上 `event.getID()` 获取当前触点 ID 和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
+
 ### Shader
 
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
@@ -105,6 +106,7 @@
     同样 1024 x 1024 的图片，占用内存就是 1024 x 1024 x 16 = 16777216 位，也就是 `4.096MB`，但是相对的，也会有一定的失真
 
 -   开启动态合图的情况下，将可以参与动态合图的节点相邻即可合并 Draw call，Label 默认会打断合批，但是如果文本缓存模式设置为 `Bitmap` 或 `Char` 则也可以参与动态合图，从而降低 Draw call
+-   当需要向下取整时，可以将 `Math.floor(1.22)` 换成 `~~1.22` 性能会有所提升，将字符串转换为整型数字时，也可以使用 `~~"133"` 性能会有所提升。
 
     > [游戏性能调优](https://forum.cocos.org/t/topic/95040)  
     > [Cocos Creator 性能优化：DrawCall（全面！）](https://forum.cocos.org/t/cocos-creator-drawcall/95043)  
