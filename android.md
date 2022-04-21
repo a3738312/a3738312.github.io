@@ -86,3 +86,4 @@
   A problem occurred configuring project ':app'.
     java.lang.NullPointerException (no error message)
   ```
+* 亚马逊与谷歌同时使用AdMob广告需要使用不同的包名
