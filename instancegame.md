@@ -42,6 +42,22 @@
         return cc.audioEngine.play(filePath, loop || false, _effect.volume);
     };
   ```
+* 2.4.x版本中使用 `cc.assetManager.loadBundle` 加载bundle获取加载进度时会添加 `onFileProgress` 参数，vivo返回的加载进度为一个对象，类型为 `{ progress: string, totalBytesWritten: number, totalBytesExpectedToWrite: number }`
+    ```
+    cc.assetManager.loadBundle(
+        "Bundle",
+        {
+            onFileProgress: (data: {
+                progress: string;
+                totalBytesWritten: number;
+                totalBytesExpectedToWrite: number;
+            }) => {
+                console.log("Bundle load:" + JSON.stringify(data));
+            },
+        },
+        (error: Error, bundle: cc.AssetManager.Bundle) => {}
+    );
+    ```
 
 ## 小程序SDK接入
 

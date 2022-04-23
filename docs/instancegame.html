@@ -334,6 +334,20 @@
   };
 </code></pre>
 </li>
+<li>2.4.x&#x7248;&#x672C;&#x4E2D;&#x4F7F;&#x7528; <code>cc.assetManager.loadBundle</code> &#x52A0;&#x8F7D;bundle&#x83B7;&#x53D6;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x65F6;&#x4F1A;&#x6DFB;&#x52A0; <code>onFileProgress</code> &#x53C2;&#x6570;&#xFF0C;vivo&#x8FD4;&#x56DE;&#x7684;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7C7B;&#x578B;&#x4E3A; <code>{ progress: string, totalBytesWritten: number, totalBytesExpectedToWrite: number }</code><pre><code>  cc.assetManager.loadBundle(
+      &quot;Bundle&quot;,
+      {
+          onFileProgress: (data: {
+              progress: string;
+              totalBytesWritten: number;
+              totalBytesExpectedToWrite: number;
+          }) =&gt; {
+              console.log(&quot;Bundle load:&quot; + JSON.stringify(data));
+          },
+      },
+      (error: Error, bundle: cc.AssetManager.Bundle) =&gt; {}
+  );
+</code></pre></li>
 </ul>
 <h2 id="&#x5C0F;&#x7A0B;&#x5E8F;sdk&#x63A5;&#x5165;">&#x5C0F;&#x7A0B;&#x5E8F;SDK&#x63A5;&#x5165;</h2>
 <ul>
@@ -398,7 +412,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"小游戏","level":"1.8","depth":1,"next":{"title":"微信小游戏的优化","level":"1.9","depth":1,"path":"wechat.md","ref":"./wechat.md","articles":[]},"previous":{"title":"安卓原生","level":"1.7","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"instancegame.md","mtime":"2021-10-08T04:30:54.555Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-21T12:58:47.132Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"小游戏","level":"1.8","depth":1,"next":{"title":"微信小游戏的优化","level":"1.9","depth":1,"path":"wechat.md","ref":"./wechat.md","articles":[]},"previous":{"title":"安卓原生","level":"1.7","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"instancegame.md","mtime":"2022-04-21T13:30:49.578Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-04-23T12:23:35.413Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
