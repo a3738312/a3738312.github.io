@@ -46,6 +46,8 @@
         ![](./image/cocos02.png)
 -   IOS 上 `event.getID()` 获取当前触点 ID 和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
 
+* Spine骨骼动画使用 `setAnimation` 来播放动画时可以通过返回的 `trackEntry` 对象来设置该轨道上的动画状态，如`timeScale`等
+
 ### Shader
 
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
