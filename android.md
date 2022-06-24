@@ -87,3 +87,6 @@
     java.lang.NullPointerException (no error message)
   ```
 * 亚马逊与谷歌同时使用AdMob广告需要使用不同的包名
+
+* ![图片](.\image\android1.png)
+此方式引入会导致引入所有的 `firebase` 相关包
