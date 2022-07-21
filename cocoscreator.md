@@ -21,7 +21,7 @@
 -   在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
 -   TS 循环引用会报错
 -   Git 同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
--   `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透，使用 `cc.macro.ENABLE_MULTI_TOUCH = false;` 关闭多点触碰，会导致点击事件被其他节点截断，哪怕层级本该被该层级遮挡；若父节点们有一个添加了 `BlockInputEvents` 组件或 `swallowTouches` 的值为 true 的节点或按钮，则穿透会失效
+-   `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透，需要在注册点击事件之后调用才会有效；使用 `cc.macro.ENABLE_MULTI_TOUCH = false;` 关闭多点触碰，会导致点击事件被其他节点截断，哪怕层级本该被该层级遮挡；若父节点们有一个添加了 `BlockInputEvents` 组件或 `swallowTouches` 的值为 true 的节点或按钮，则穿透会失效
 -   Cocos Creator 默认的摄像机是透视模式的，如果需要用 3D 节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个 3D 节点显示的角度不一样。
 -   `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2 版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
 -   ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写 null，会导致原生平台报错
@@ -38,6 +38,15 @@
     Dst Blend Factor `DST_COLOR`
 -   骨骼动画导出二进制可以减少骨骼动画的大小，spine 骨骼动画导出时后缀需要改为 `.skel`  
     若在安卓端遇到 `T &spine::Vector<char *>::operator[](size_t)` 类似的报错，有可能是导出问题，取消勾选 `警告`、`动画清除`、`非必要的数据` 重新导出即可
+
+-   透明边图片出现黑边可以这样去除黑边
+    -   勾选纹理的透明预乘
+        ![](./image/cocos01.png)
+    -   修改 Sprite 的 Blend Factor 为 ONE
+        ![](./image/cocos02.png)
+-   IOS 上 `event.getID()` 获取当前触点 ID 和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
+
+* Spine骨骼动画使用 `setAnimation` 来播放动画时可以通过返回的 `trackEntry` 对象来设置该轨道上的动画状态，如`timeScale`等
 
 ### Shader
 
@@ -99,6 +108,7 @@
     同样 1024 x 1024 的图片，占用内存就是 1024 x 1024 x 16 = 16777216 位，也就是 `4.096MB`，但是相对的，也会有一定的失真
 
 -   开启动态合图的情况下，将可以参与动态合图的节点相邻即可合并 Draw call，Label 默认会打断合批，但是如果文本缓存模式设置为 `Bitmap` 或 `Char` 则也可以参与动态合图，从而降低 Draw call
+-   当需要向下取整时，可以将 `Math.floor(1.22)` 换成 `~~1.22` 性能会有所提升，将字符串转换为整型数字时，也可以使用 `~~"133"` 性能会有所提升。
 
     > [游戏性能调优](https://forum.cocos.org/t/topic/95040)  
     > [Cocos Creator 性能优化：DrawCall（全面！）](https://forum.cocos.org/t/cocos-creator-drawcall/95043)  

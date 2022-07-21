@@ -36,6 +36,10 @@
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
                 
             
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
         
 
     
@@ -227,6 +231,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.11" data-path="harmony.html">
+            
+                <a href="harmony.html">
+            
+                    
+                    鸿蒙开发相关
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -300,7 +317,7 @@ bundle.load(assetUrl, cc.Asset, (finish: <span class="hljs-built_in">number</spa
   });
 </code></pre>
 </li>
-<li>AssetBundle &#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528; Bundle &#x5305;&#x91CC;&#x9762;&#x7684;&#x7C7B;&#xFF0C;Budnle &#x5305;&#x91CC;&#x7684;&#x811A;&#x672C;&#x4E5F;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x5916;&#x90E8;&#x811A;&#x672C;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x5BFC;&#x81F4;&#x811A;&#x672C;&#x88AB;&#x6253;&#x5305;&#x5230;&#x4E3B;&#x5305;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x4F7F;&#x7528; <code>node.getComponent(&apos;className&apos;);</code> &#x7684;&#x65B9;&#x5F0F;&#x6765;&#x83B7;&#x53D6;&#x811A;&#x672C;&#x5B9E;&#x4F8B;</li>
+<li>AssetBundle &#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528; Bundle &#x5305;&#x91CC;&#x9762;&#x7684;&#x7C7B;&#xFF0C; <code>Bundle</code> &#x5305;&#x91CC;&#x7684;&#x811A;&#x672C;&#x4E5F;&#x4E0D;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5F15;&#x7528;&#x5916;&#x90E8;&#x811A;&#x672C;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x5BFC;&#x81F4;&#x811A;&#x672C;&#x88AB;&#x6253;&#x5305;&#x5230;&#x4E3B;&#x5305;&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x4F7F;&#x7528; <code>node.getComponent(&apos;className&apos;);</code> &#x7684;&#x65B9;&#x5F0F;&#x6765;&#x83B7;&#x53D6;&#x811A;&#x672C;&#x5B9E;&#x4F8B;</li>
 <li>AssetBundle &#x7684;&#x7248;&#x672C;&#x53F7;&#x5C31;&#x662F;&#x6253;&#x5305;&#x51FA;&#x6765;&#x4E4B;&#x540E;&#x4E2D;&#x95F4;&#x7684;&#x8FD9;&#x6BB5;&#x5B57;&#x7B26;&#x4E32; <code>config.&#x7248;&#x672C;&#x53F7;.json</code> <code>index.&#x7248;&#x672C;&#x53F7;.js</code> &#x82E5;&#x52FE;&#x9009;md5&#xFF0C;&#x5219;&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;md5&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x586B;&#x5199;&#xFF0C;&#x5982; <code>index.1.0.js</code> &#x52A0;&#x8F7D;&#x65F6;&#x7248;&#x672C;&#x53F7;&#x586B;&#x5199; <code>{ver: &apos;1.0&apos;}</code> &#x5373;&#x53EF;  </li>
 <li>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x83B7;&#x53D6;bundle&#x4E2D;&#x6240;&#x6709;&#x8D44;&#x6E90;&#x8DEF;&#x5F84;&#xFF0C;&#x4E14;&#x4E0D;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x8D44;&#x6E90;  <pre><code class="lang-typescript"><span class="hljs-comment">//_config&#x4E3A;&#x79C1;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x5F53;&#x524D;&#x5B98;&#x65B9;&#x5E76;&#x672A;&#x63D0;&#x4F9B;&#x83B7;&#x53D6;api</span>
 <span class="hljs-keyword">let</span> map = bundle._config.paths._map;
@@ -311,6 +328,7 @@ bundle.load(assetUrl, cc.Asset, (finish: <span class="hljs-built_in">number</spa
 <span class="hljs-built_in">console</span>.log(tmpArr);<span class="hljs-comment">//[&quot;path1&quot;,&quot;path2&quot;,&quot;path3/path&quot;];</span>
 </code></pre>
 </li>
+<li>&#x901A;&#x8FC7; <code>bundle</code> &#x5BF9;&#x8C61;&#x52A0;&#x8F7D;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7BA1;&#x7406;&#x91CA;&#x653E;&#xFF1B;&#x8D44;&#x6E90;&#x52A0;&#x8F7D;&#x540E;&#x9ED8;&#x8BA4;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x4E3A;0&#xFF0C;&#x4F7F;&#x7528; <code>asset.addRef()</code> &#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x8D44;&#x6E90;&#x5F15;&#x7528;&#xFF0C;&#x4F7F;&#x7528; <code>asset.decRef()</code> &#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x8D44;&#x6E90;&#x5F15;&#x7528;&#xFF0C;&#x5F53;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x51CF;&#x5C11;&#x5230;0&#x65F6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x5C1D;&#x8BD5;&#x91CA;&#x653E;&#x8D44;&#x6E90;</li>
 <li>AssetBundle &#x4F7F;&#x7528; <code>loadDir</code> &#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x5939;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5939;&#x4E0B;&#x6709;&#x5B50;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x8FDB;&#x5EA6;&#x56DE;&#x8C03;&#x4E2D;&#x7684; <code>total</code> &#x5B57;&#x6BB5;&#x968F;&#x7740;&#x52A0;&#x8F7D;&#x589E;&#x52A0;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0; <code>finish / total</code> &#x83B7;&#x53D6;&#x7684;&#x8FDB;&#x5EA6;&#x4E0D;&#x51C6;&#x786E;</li>
 <li><code>cc.assetManager.bundles</code> &#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x5DF2;&#x52A0;&#x8F7D;&#x7684;&#x6240;&#x6709; <code>bundle</code>  </li>
 <li>AssetBundle &#x52A0;&#x8F7D;&#x7684;&#x4EE3;&#x7801;&#x8D44;&#x6E90;&#x65E0;&#x6CD5;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#xFF0C;&#x52A0;&#x8F7D;&#x7684; Bundle &#x5185;&#x82E5;&#x6709;&#x4E0E;&#x73B0;&#x6709;&#x811A;&#x672C;&#x540C;&#x540D;&#x7684;&#x811A;&#x672C;&#x5219;&#x4F1A;&#x62A5;&#x9519;</li>
@@ -375,7 +393,7 @@ bundle.load(assetUrl, cc.Asset, (finish: <span class="hljs-built_in">number</spa
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AssetBundle","level":"1.6","depth":1,"next":{"title":"安卓原生","level":"1.7","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"previous":{"title":"Editor 参数","level":"1.5","depth":1,"path":"editor.md","ref":"./editor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"assetsbundle.md","mtime":"2021-04-10T12:06:40.673Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-07T02:54:07.488Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AssetBundle","level":"1.6","depth":1,"next":{"title":"安卓原生","level":"1.7","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"previous":{"title":"Editor 参数","level":"1.5","depth":1,"path":"editor.md","ref":"./editor.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"assetsbundle.md","mtime":"2021-10-08T05:10:48.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-11T10:43:39.789Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -406,6 +424,10 @@ bundle.load(assetUrl, cc.Asset, (finish: <span class="hljs-built_in">number</spa
     
         
         <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 

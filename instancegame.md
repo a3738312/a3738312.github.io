@@ -28,7 +28,7 @@
     audio.src = 'res/demo.mp3';
   ```
 
-* 音频播放在切后台的时候调用暂停音频的话，在切前台的时候有可能音频还会自动播放，但是音频当前状态还是暂停，这种时候可以在且前台先调用 `audio.play()` 再调用 `audio.puase()` 来暂停
+* 音频播放在切后台的时候调用暂停音频的话，在切前台的时候有可能音频还会自动播放，但是音频当前状态还是暂停，这种时候可以在且前台先调用 `audio.play()` 再调用 `audio.pause()` 来暂停
 
 ## VIVO小游戏
 
@@ -42,6 +42,22 @@
         return cc.audioEngine.play(filePath, loop || false, _effect.volume);
     };
   ```
+* 2.4.x版本中使用 `cc.assetManager.loadBundle` 加载bundle获取加载进度时会添加 `onFileProgress` 参数，vivo返回的加载进度为一个对象，类型为 `{ progress: string, totalBytesWritten: number, totalBytesExpectedToWrite: number }`
+    ```
+    cc.assetManager.loadBundle(
+        "Bundle",
+        {
+            onFileProgress: (data: {
+                progress: string;
+                totalBytesWritten: number;
+                totalBytesExpectedToWrite: number;
+            }) => {
+                console.log("Bundle load:" + JSON.stringify(data));
+            },
+        },
+        (error: Error, bundle: cc.AssetManager.Bundle) => {}
+    );
+    ```
 
 ## 小程序SDK接入
 

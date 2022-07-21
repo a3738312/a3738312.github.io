@@ -36,6 +36,10 @@
                 <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
                 
             
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
         
 
     
@@ -227,6 +231,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.11" data-path="harmony.html">
+            
+                <a href="harmony.html">
+            
+                    
+                    鸿蒙开发相关
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
 
@@ -303,7 +320,7 @@
   audio.src = <span class="hljs-string">&apos;res/demo.mp3&apos;</span>;
 </code></pre>
 </li>
-<li><p>&#x97F3;&#x9891;&#x64AD;&#x653E;&#x5728;&#x5207;&#x540E;&#x53F0;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x6682;&#x505C;&#x97F3;&#x9891;&#x7684;&#x8BDD;&#xFF0C;&#x5728;&#x5207;&#x524D;&#x53F0;&#x7684;&#x65F6;&#x5019;&#x6709;&#x53EF;&#x80FD;&#x97F3;&#x9891;&#x8FD8;&#x4F1A;&#x81EA;&#x52A8;&#x64AD;&#x653E;&#xFF0C;&#x4F46;&#x662F;&#x97F3;&#x9891;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x8FD8;&#x662F;&#x6682;&#x505C;&#xFF0C;&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5728;&#x4E14;&#x524D;&#x53F0;&#x5148;&#x8C03;&#x7528; <code>audio.play()</code> &#x518D;&#x8C03;&#x7528; <code>audio.puase()</code> &#x6765;&#x6682;&#x505C;</p>
+<li><p>&#x97F3;&#x9891;&#x64AD;&#x653E;&#x5728;&#x5207;&#x540E;&#x53F0;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x6682;&#x505C;&#x97F3;&#x9891;&#x7684;&#x8BDD;&#xFF0C;&#x5728;&#x5207;&#x524D;&#x53F0;&#x7684;&#x65F6;&#x5019;&#x6709;&#x53EF;&#x80FD;&#x97F3;&#x9891;&#x8FD8;&#x4F1A;&#x81EA;&#x52A8;&#x64AD;&#x653E;&#xFF0C;&#x4F46;&#x662F;&#x97F3;&#x9891;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x8FD8;&#x662F;&#x6682;&#x505C;&#xFF0C;&#x8FD9;&#x79CD;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x5728;&#x4E14;&#x524D;&#x53F0;&#x5148;&#x8C03;&#x7528; <code>audio.play()</code> &#x518D;&#x8C03;&#x7528; <code>audio.pause()</code> &#x6765;&#x6682;&#x505C;</p>
 </li>
 </ul>
 <h2 id="vivo&#x5C0F;&#x6E38;&#x620F;">VIVO&#x5C0F;&#x6E38;&#x620F;</h2>
@@ -317,6 +334,20 @@
   };
 </code></pre>
 </li>
+<li>2.4.x&#x7248;&#x672C;&#x4E2D;&#x4F7F;&#x7528; <code>cc.assetManager.loadBundle</code> &#x52A0;&#x8F7D;bundle&#x83B7;&#x53D6;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x65F6;&#x4F1A;&#x6DFB;&#x52A0; <code>onFileProgress</code> &#x53C2;&#x6570;&#xFF0C;vivo&#x8FD4;&#x56DE;&#x7684;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6;&#x4E3A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x7C7B;&#x578B;&#x4E3A; <code>{ progress: string, totalBytesWritten: number, totalBytesExpectedToWrite: number }</code><pre><code>  cc.assetManager.loadBundle(
+      &quot;Bundle&quot;,
+      {
+          onFileProgress: (data: {
+              progress: string;
+              totalBytesWritten: number;
+              totalBytesExpectedToWrite: number;
+          }) =&gt; {
+              console.log(&quot;Bundle load:&quot; + JSON.stringify(data));
+          },
+      },
+      (error: Error, bundle: cc.AssetManager.Bundle) =&gt; {}
+  );
+</code></pre></li>
 </ul>
 <h2 id="&#x5C0F;&#x7A0B;&#x5E8F;sdk&#x63A5;&#x5165;">&#x5C0F;&#x7A0B;&#x5E8F;SDK&#x63A5;&#x5165;</h2>
 <ul>
@@ -381,7 +412,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"小游戏","level":"1.8","depth":1,"next":{"title":"微信小游戏的优化","level":"1.9","depth":1,"path":"wechat.md","ref":"./wechat.md","articles":[]},"previous":{"title":"安卓原生","level":"1.7","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-fontsettings","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"instancegame.md","mtime":"2020-12-11T06:03:13.876Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-05-07T02:54:07.488Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"小游戏","level":"1.8","depth":1,"next":{"title":"微信小游戏的优化","level":"1.9","depth":1,"path":"wechat.md","ref":"./wechat.md","articles":[]},"previous":{"title":"安卓原生","level":"1.7","depth":1,"path":"android.md","ref":"./android.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"instancegame.md","mtime":"2022-04-21T13:30:49.578Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-06-11T10:43:39.789Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
@@ -412,6 +443,10 @@
     
         
         <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
         
     
 

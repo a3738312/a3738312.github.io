@@ -26,7 +26,7 @@
     cc.assetManager.loadBundle("D:/build/Bundle", null, (err: Error, bundle: cc.AssetManager.Bundle) => { 
     });
   ```
-* AssetBundle 可以包含代码，但是使用时不可以直接引用 Bundle 包里面的类，Budnle 包里的脚本也不可以直接引用外部脚本，否则会导致脚本被打包到主包，使用时需要使用 `node.getComponent('className');` 的方式来获取脚本实例
+* AssetBundle 可以包含代码，但是使用时不可以直接引用 Bundle 包里面的类， `Bundle` 包里的脚本也不可以直接引用外部脚本，否则会导致脚本被打包到主包，使用时需要使用 `node.getComponent('className');` 的方式来获取脚本实例
 * AssetBundle 的版本号就是打包出来之后中间的这段字符串 `config.版本号.json` `index.版本号.js` 若勾选md5，则会自动添加md5字符串，也可以手动填写，如 `index.1.0.js` 加载时版本号填写 `{ver: '1.0'}` 即可  
 * 可以通过以下代码获取bundle中所有资源路径，且不需要加载资源  
   ```typescript
@@ -38,6 +38,7 @@
   }
   console.log(tmpArr);//["path1","path2","path3/path"];
   ```
+* 通过 `bundle` 对象加载的资源，需要自己管理释放；资源加载后默认引用计数为0，使用 `asset.addRef()` 可以增加资源引用，使用 `asset.decRef()` 可以减少资源引用，当引用计数减少到0时，会自动尝试释放资源
 * AssetBundle 使用 `loadDir` 加载文件夹时，如果文件夹下有子文件夹，会导致进度回调中的 `total` 字段随着加载增加，会出现 `finish / total` 获取的进度不准确
 * `cc.assetManager.bundles` 可以查看当前已加载的所有 `bundle`  
 * AssetBundle 加载的代码资源无法清除缓存，加载的 Bundle 内若有与现有脚本同名的脚本则会报错
