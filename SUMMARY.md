@@ -10,3 +10,4 @@
 * [小游戏](./instancegame.md)
 * [微信小游戏的优化](./wechat.md)
 * [GitHub相关](./github.md)
+* [鸿蒙相关](./harmony.md)
