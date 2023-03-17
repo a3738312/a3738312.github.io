@@ -2,102 +2,104 @@
 
 ## 综合
 
-**替换服务器上资源一定要记得备份**
+* **替换服务器上资源一定要记得备份**
 
--   遇事不决先保存
--   一个需求完成后，先提交一次再继续做别的需求
--   废弃代码及时清理
--   空闲的时候看以前写的代码是否可以优化
--   资源文件 ( 图片,预制体等 ) 名称不要有特殊符号和中文,可能会有问题
--   Cocos Creator 搭建安卓原生环境的时候要注意：Cocos Creator 安装目录和 sdk、ndk、ant 的路径都不能有中文和空格
--   Cocos Creator 编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
+* 遇事不决先保存
+* 一个需求完成后，先提交一次再继续做别的需求
+* 废弃代码及时清理
+* 空闲的时候看以前写的代码是否可以优化
+* 资源文件 ( 图片,预制体等 ) 名称不要有特殊符号和中文,可能会有问题
+* Cocos Creator 搭建安卓原生环境的时候要注意：Cocos Creator 安装目录和 sdk、ndk、ant 的路径都不能有中文和空格
+* Cocos Creator 编译安卓原生的时候有类似以下报错或找不到文件夹可能是因为项目路径太深  
      `fatal error: opening dependency file ... No such file or directory`
--   CocosCreator 中 Java 和 JS 互相调用
+* CocosCreator 中 Java 和 JS 互相调用
     > [如何在 Android 平台上使用 JavaScript 直接调用 Java 方法](https://docs.cocos.com/creator/manual/zh/advanced-topics/java-reflection.html?h=java)
     >
     > > _**\(特别注意 String 的方法签名 `Ljava/lang/String;` 后面的分号一定要加上去\)**_
--   在 TS 中引用 JS `import js = require("./js")`
--   在 JS 中引用 TS `import ts from "./ts";`
--   在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
--   TS 循环引用会报错
--   Git 同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
--   `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透，需要在注册点击事件之后调用才会有效；使用 `cc.macro.ENABLE_MULTI_TOUCH = false;` 关闭多点触碰，会导致点击事件被其他节点截断，哪怕层级本该被该层级遮挡；若父节点们有一个添加了 `BlockInputEvents` 组件或 `swallowTouches` 的值为 true 的节点或按钮，则穿透会失效
--   Cocos Creator 默认的摄像机是透视模式的，如果需要用 3D 节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个 3D 节点显示的角度不一样。
--   `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2 版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
--   ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写 null，会导致原生平台报错
--   Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕
--   在项目中设置好布局之后，在项目的 `项目目录/local/layout.editor.json` 找到 `layout` 字段，将字段内容复制到 `编辑器目录/resources/static/layout` 中找到 `landscape.json` 并拷贝进去，即可替换
--   在 2.4.3 中发现，Collider 碰撞组件修改 `size` 或者 `offset` 之后调用 `apply()` 应用修改时，会让碰撞**组件启用**，效果**等同于** `enabled` 设置为 `true`；但实际上 `enabled` 的值**并不会发生变化**，所以如果碰撞组件在关闭的情况下修改大小位置等并应用，且在之后马上设置 `enabled` 为 `false` 会出现没有效果的问题，在 `enabled` 为 `false` 的情况下修改碰撞组件参数，不需要调用 `apply()`，在下次 `enabled` 值设置为 `true` 会应用
--   对于刚体碰撞反馈的缩放，最好采取显示节点缩放，而不是对有刚体的节点直接缩放。因为直接对刚体节点缩放时，会重新构建这个刚体依赖的全部碰撞体
--   2.x 中，通过修改 `...\resources\static\template\new-script.ts` 可以自定义创建脚本模板
--   可以通过在所有 UI 顶部叠加一层白色`Sprite`来增加整个界面的亮度，将`Sprite`的混合模式设置为  
+* 在 TS 中引用 JS `import js = require("./js")`
+* 在 JS 中引用 TS `import ts from "./ts";`
+* 在资源管理器里删除资源或者手动移动资源后如果有报错，把 `library` `local` `temp` 目录删掉重新打开
+* TS 循环引用会报错
+* Git 同步场景可能会因为冲突导致无法解决的报错，这时可以放弃较少修改的部分，同步完后重新修改场景再提交
+* `node._touchListener.setSwallowTouches(false);` 可以让去掉点击事件截断，非父子节点也可穿透，需要在注册点击事件之后调用才会有效；使用 `cc.macro.ENABLE_MULTI_TOUCH = false;` 关闭多点触碰，会导致点击事件被其他节点截断，哪怕层级本该被该层级遮挡；若父节点们有一个添加了 `BlockInputEvents` 组件或 `swallowTouches` 的值为 true 的节点或按钮，则穿透会失效
+* Cocos Creator 默认的摄像机是透视模式的，如果需要用 3D 节点做倾斜文字，需要将摄像机设置为正交摄像机，不然因为透视会导致每个 3D 节点显示的角度不一样。
+* `CCLabel` 的 `string` 修改后节点大小会在下一帧才刷新，2.2 版本前可以使用 `label._updateRenderData()` 来手动刷新节点大小，之后可以使用 `label._forceUpdateRenderData()` 来刷新。刷新后获取节点大小就是修改内容后正确的大小
+* ~~`cc.audioEngine.setFinishCallback(id, null);`~~//设置完成回调函数不能写 null，会导致原生平台报错
+* Spine 骨骼动画可以在不同轨道播放动画来实现动画混合效果，轨道动画播放完之后需要清除轨道动画，否则动画会一直覆盖在上面。使用 `setTrackCompleteListener` 来监听动画是否播放完毕
+* 在项目中设置好布局之后，在项目的 `项目目录/local/layout.editor.json` 找到 `layout` 字段，将字段内容复制到 `编辑器目录/resources/static/layout` 中找到 `landscape.json` 并拷贝进去，即可替换
+* 在 2.4.3 中发现，Collider 碰撞组件修改 `size` 或者 `offset` 之后调用 `apply()` 应用修改时，会让碰撞**组件启用**，效果**等同于** `enabled` 设置为 `true`；但实际上 `enabled` 的值**并不会发生变化**，所以如果碰撞组件在关闭的情况下修改大小位置等并应用，且在之后马上设置 `enabled` 为 `false` 会出现没有效果的问题，在 `enabled` 为 `false` 的情况下修改碰撞组件参数，不需要调用 `apply()`，在下次 `enabled` 值设置为 `true` 会应用
+* 对于刚体碰撞反馈的缩放，最好采取显示节点缩放，而不是对有刚体的节点直接缩放。因为直接对刚体节点缩放时，会重新构建这个刚体依赖的全部碰撞体
+* 2.x 中，通过修改 `...\resources\static\template\new-script.ts` 可以自定义创建脚本模板
+* 可以通过在所有 UI 顶部叠加一层白色`Sprite`来增加整个界面的亮度，将`Sprite`的混合模式设置为  
     Src Blend Factor `SRC_ALPHA`  
     Dst Blend Factor `ONE`  
     可以通过改为以下设置实现颜色加深  
     Src Blend Factor `SRC_ALPHA`  
     Dst Blend Factor `DST_COLOR`
--   骨骼动画导出二进制可以减少骨骼动画的大小，spine 骨骼动画导出时后缀需要改为 `.skel`  
+* 骨骼动画导出二进制可以减少骨骼动画的大小，spine 骨骼动画导出时后缀需要改为 `.skel`  
     若在安卓端遇到 `T &spine::Vector<char *>::operator[](size_t)` 类似的报错，有可能是导出问题，取消勾选 `警告`、`动画清除`、`非必要的数据` 重新导出即可
 
--   透明边图片出现黑边可以这样去除黑边
-    -   勾选纹理的透明预乘
-        ![](./image/cocos01.png)
-    -   修改 Sprite 的 Blend Factor 为 ONE
-        ![](./image/cocos02.png)
--   IOS 上 `event.getID()` 获取当前触点 ID 和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
+* 透明边图片出现黑边可以这样去除黑边
+  * 勾选纹理的透明预乘
+    ![cocos01](./image/cocos01.png)
+  * 修改 Sprite 的 Blend Factor 为 ONE
+    ![cocos02](./image/cocos02.png)
+* IOS 上 `event.getID()` 获取当前触点 ID 和其他平台不一样，使用 `event.getTouches()` 获取触点列表来判断触点数量
 
 * Spine骨骼动画使用 `setAnimation` 来播放动画时可以通过返回的 `trackEntry` 对象来设置该轨道上的动画状态，如`timeScale`等
+* 有损压缩Spine使用的材质可能会导致渲染出现色块，可以通过取消勾选`Premultiplied Alpha`或使用无损压缩来解决
 
 ### Shader
 
 [OpenGL ES](https://www.jianshu.com/p/99daa25b4573)  
 [Learn OpenGL CN](https://learnopengl-cn.github.io/)
 
--   大致流程
+* 大致流程
     1. 获取图像数据流
     2. `顶点处理` 根据投影等矩阵变换改变顶点位置，并根据顶点位置来计算纹理坐标的位置
     3. `图元拼装` 根据处理好的顶点及纹理坐标信息，将纹理组装成图元
     4. `栅格化操作` 根据处理好的图元数据，分解成更小的对应缓冲区像素的片元
     5. `片元处理` 通过纹理坐标取得纹理中相对应的片元像素值,根据自己的业务处理来变换这个片元的颜色
     6. `帧缓冲操作` 将最终的像素值写入帧缓冲区
--   `顶点着色器` 是用来**替代** `顶点处理` 阶段的，`片元着色器` 是用来**替代** `片元处理` 阶段的
--   Cocos creator Effect 语法使用 `GLES语法(与C语言很相似)`，所以语法学习并不难，难点在于数学
+* `顶点着色器` 是用来**替代** `顶点处理` 阶段的，`片元着色器` 是用来**替代** `片元处理` 阶段的
+* Cocos creator Effect 语法使用 `GLES语法(与C语言很相似)`，所以语法学习并不难，难点在于数学
 
 ### 关于插件
 
--   JS 文件可以勾选导入为插件，插件 JS 文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
+* JS 文件可以勾选导入为插件，插件 JS 文件不可用 `ccclass` 类，会在游戏代码前加载，可以用于初始化一些全局变量、方法等
 
 ## 关于 Tiled Map
 
--   可以在 Tiled Map 中新建对象层，使用多边形来设置不规则碰撞箱，在 Cocos Creator 内获得所有多边形的数组来动态生成多边形碰撞：
+* 可以在 Tiled Map 中新建对象层，使用多边形来设置不规则碰撞箱，在 Cocos Creator 内获得所有多边形的数组来动态生成多边形碰撞：
+
     ```typescript
     let objects = map.getObjectGroup("collision").getObjects(); //获取对象层内所有对象
     for (let i = 0; i < objects.length; i++) {
-    	let collider = new cc.Node("collision");
-    	this.node.addChild(collider);
-    	collider.setPosition(map.node.position.x + objects[i].x, map.node.position.y + objects[i].y);
-    	let body = collider.addComponent(cc.RigidBody);
-    	body.type = cc.RigidBodyType.Static; //设置刚体类型为静态
-    	body.allowSleep = true; //设置自动休眠为true
-    	body.gravityScale = 0; //设置受重力影响为0
-    	body.awakeOnLoad = true; //设置默认唤醒
-    	let polygon = collider.addComponent(cc.PhysicsPolygonCollider);
-    	let p = objects[i].points;
-    	let points: cc.Vec2[] = [];
-    	for (let i = 0; i < p.length; i++) {
-    		let v2 = cc.v2(p[i].x, p[i].y);
-    		points.push(v2);
-    	}
-    	polygon.points = points;
-    	polygon.apply();
+        let collider = new cc.Node("collision");
+        this.node.addChild(collider);
+        collider.setPosition(map.node.position.x + objects[i].x, map.node.position.y + objects[i].y);
+        let body = collider.addComponent(cc.RigidBody);
+        body.type = cc.RigidBodyType.Static; //设置刚体类型为静态
+        body.allowSleep = true; //设置自动休眠为true
+        body.gravityScale = 0; //设置受重力影响为0
+        body.awakeOnLoad = true; //设置默认唤醒
+        let polygon = collider.addComponent(cc.PhysicsPolygonCollider);
+        let p = objects[i].points;
+        let points: cc.Vec2[] = [];
+        for (let i = 0; i < p.length; i++) {
+            let v2 = cc.v2(p[i].x, p[i].y);
+            points.push(v2);
+        }
+        polygon.points = points;
+        polygon.apply();
     }
     ```
 
 ## 关于游戏优化
 
--   加载场景时会把场景依赖的资源也一起加载，所以尽量不要把所有东西都放在场景内
--   关于内存占用，动态加载预制体也会把预制体依赖的资源一起加载进来，所以要及时释放掉
--   图片纹理占用内存是根据色彩存储方式计算的，一般保存文件都是 `ARGB8888`
+* 加载场景时会把场景依赖的资源也一起加载，所以尽量不要把所有东西都放在场景内
+* 关于内存占用，动态加载预制体也会把预制体依赖的资源一起加载进来，所以要及时释放掉
+* 图片纹理占用内存是根据色彩存储方式计算的，一般保存文件都是 `ARGB8888`
 
     > 每个像素占四位，即 A=8，R=8，G=8，B=8，那么一个像素点占 8+8+8+8=32 位
 
@@ -107,8 +109,8 @@
 
     同样 1024 x 1024 的图片，占用内存就是 1024 x 1024 x 16 = 16777216 位，也就是 `4.096MB`，但是相对的，也会有一定的失真
 
--   开启动态合图的情况下，将可以参与动态合图的节点相邻即可合并 Draw call，Label 默认会打断合批，但是如果文本缓存模式设置为 `Bitmap` 或 `Char` 则也可以参与动态合图，从而降低 Draw call
--   当需要向下取整时，可以将 `Math.floor(1.22)` 换成 `~~1.22` 性能会有所提升，将字符串转换为整型数字时，也可以使用 `~~"133"` 性能会有所提升。
+* 开启动态合图的情况下，将可以参与动态合图的节点相邻即可合并 Draw call，Label 默认会打断合批，但是如果文本缓存模式设置为 `Bitmap` 或 `Char` 则也可以参与动态合图，从而降低 Draw call
+* 当需要向下取整时，可以将 `Math.floor(1.22)` 换成 `~~1.22` 性能会有所提升，将字符串转换为整型数字时，也可以使用 `~~"133"` 性能会有所提升。
 
     > [游戏性能调优](https://forum.cocos.org/t/topic/95040)  
     > [Cocos Creator 性能优化：DrawCall（全面！）](https://forum.cocos.org/t/cocos-creator-drawcall/95043)  
@@ -119,7 +121,7 @@
 
 ## 挺不错的文章
 
--   还未整理分类
+* 还未整理分类
 
     > [Cocos 入门指引](https://forum.cocos.org/t/cocos/94728)  
     > [使用 Creator 三年的游戏开发总结](https://forum.cocos.org/t/creator/94747)  
