@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>关于JS和TS · 工作笔记</title>
+        <title>Unity · 工作笔记</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="unity.html" />
+    <link rel="next" href="cocoscreator.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="lan.html" />
     
 
     </head>
@@ -114,7 +114,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="lan.html">
+        <li class="chapter " data-level="1.2" data-path="lan.html">
             
                 <a href="lan.html">
             
@@ -127,7 +127,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="unity.html">
+        <li class="chapter active" data-level="1.3" data-path="unity.html">
             
                 <a href="unity.html">
             
@@ -287,7 +287,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >关于JS和TS</a>
+        <a href="." >Unity</a>
     </h1>
 </div>
 
@@ -305,51 +305,50 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#x5173;&#x4E8E;js&#x548C;ts">&#x5173;&#x4E8E;JS&#x548C;TS</h1>
-<ul>
-<li><code>() =&gt; {}</code> &#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x4E2D; <code>this</code> &#x7684;&#x6307;&#x5411;&#x56FA;&#x5B9A;&#x4E3A;&#x5B9A;&#x4E49;&#x73AF;&#x5883;,<code>funtion(){}</code>&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x4E2D; <code>this</code> &#x5219;&#x662F;&#x968F;&#x7740;&#x8C03;&#x7528;&#x73AF;&#x5883;&#x800C;&#x53D8;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>funtion(){}.bind(object)</code> &#x65B9;&#x5F0F;&#x7ED1;&#x5B9A; <code>this</code></li>
-<li>&#x5224;&#x65AD;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>typeof obj</code> &#x4F1A;&#x8FD4;&#x56DE;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x7B26;&#x4E32;</li>
-<li>es6&#x4E2D;&#x7684;Map&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>list = Array.from(map.values());</code> &#x6765;&#x53EA;&#x5C06;value&#x653E;&#x5165;&#x6570;&#x7EC4;&#x3002;&#x6216;&#x8005;&#x4F7F;&#x7528; <code>list = [...map];</code> &#x6765;&#x8BB2;&#x952E;&#x503C;&#x5BF9;&#x90FD;&#x653E;&#x5165;&#x6570;&#x7EC4;</li>
-<li><code>for...in..</code> &#x53EF;&#x4EE5;&#x7528;&#x6765;&#x904D;&#x5386;&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x7684;&#x5C5E;&#x6027;&#x53CA;&#x65B9;&#x6CD5;</li>
-<li><code>for...of..</code> &#x4E13;&#x95E8;&#x7528;&#x6765;&#x904D;&#x5386;&#x53EF;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#xFF0C;&#x6BD4;&#x5982;&#x6570;&#x7EC4;&#xFF0C;map&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x7B49;&#x3002;&#x5982;&#x679C;&#x6570;&#x7EC4;&#x4E2D;&#x6709;&#x90E8;&#x5206;&#x4E0B;&#x8868;&#x6CA1;&#x6709;&#x8D4B;&#x503C;&#xFF0C;&#x5219;&#x4F1A;&#x8DF3;&#x8FC7;</li>
-<li><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x63D2;&#x5165;&#x53D8;&#x91CF;</p>
-<pre><code class="lang-typescript">  <span class="hljs-string">`Name:<span class="hljs-subst">${name}</span>`</span> or <span class="hljs-string">&quot;Name:&quot;</span> + name
-</code></pre>
+                                <ul>
+<li><p>RectTransform &#x8BBE;&#x7F6E;UI&#x5BBD;&#x9AD8;&#xFF0C;&#x4F7F;&#x7528; SetSizeWithCurrentAnchors &#x65B9;&#x6CD5;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528; sizeDelta &#x8BBE;&#x7F6E;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x65E0;&#x6CD5;&#x8FBE;&#x5230;&#x9884;&#x671F;&#x6548;&#x679C;&#x3002;
+&#x8BBE;&#x7F6E;&#x5BF9;&#x9F50;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F7F;&#x7528; offsetMax &#x548C; offsetMin 
+&#x5177;&#x4F53;&#x4ECB;&#x7ECD;&#xFF1A; <a href="https://blog.csdn.net/LLLLL__/article/details/121412067" target="_blank">https://blog.csdn.net/LLLLL__/article/details/121412067</a></p>
 </li>
-<li><p>Typescript&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x91CD;&#x8F7D;&#x65B9;&#x6CD5;</p>
-<pre><code class="lang-typescript">  <span class="hljs-keyword">private</span> toString(target: <span class="hljs-built_in">number</span>): <span class="hljs-built_in">string</span>;
-  <span class="hljs-keyword">private</span> toString(target: <span class="hljs-built_in">string</span>): <span class="hljs-built_in">string</span>;
-  <span class="hljs-keyword">private</span> toString(target: <span class="hljs-built_in">boolean</span>): <span class="hljs-built_in">string</span>;
-  <span class="hljs-keyword">private</span> toString(target: object): <span class="hljs-built_in">string</span>;
-  <span class="hljs-keyword">private</span> toString(target): <span class="hljs-built_in">any</span> {
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;number&quot;</span>)
-          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;number is &quot;</span> + target;
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;string&quot;</span>)
-          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;string is &quot;</span> + target;
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;boolean&quot;</span>)
-          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;boolean is &quot;</span> + target;
-      <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> target == <span class="hljs-string">&quot;object&quot;</span>)
-          <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;object is &quot;</span> + <span class="hljs-built_in">JSON</span>.stringify(target);
-  }
-  ...
-  <span class="hljs-keyword">let</span> a: <span class="hljs-built_in">any</span>[] = [<span class="hljs-number">1</span>, <span class="hljs-string">&quot;ss&quot;</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>()];
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> obj of a) {
-      cc.log(toString(obj));
-  }
-  <span class="hljs-comment">//output number is 1</span>
-  <span class="hljs-comment">//output string is ss</span>
-  <span class="hljs-comment">//output number is 2</span>
-  <span class="hljs-comment">//output boolean is false</span>
-  <span class="hljs-comment">//output object is {}</span>
-</code></pre>
-</li>
-<li><p>&#x5982;&#x679C;&#x60F3;&#x6253;&#x5370; Typescript &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x679A;&#x4E3E;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;</p>
-<pre><code class="lang-typescript">  <span class="hljs-keyword">enum</span> Type {
-    Type1 = <span class="hljs-number">0</span>,
-    Type2 = <span class="hljs-number">1</span>
-  }
-  <span class="hljs-built_in">console</span>.log(Type[Type.Type1]);<span class="hljs-comment">//output: Type1</span>
-  <span class="hljs-built_in">console</span>.log(Type[<span class="hljs-number">1</span>]);<span class="hljs-comment">//output: Type2</span>
+<li><p>UI&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-C#">      //&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;
+      public void OnPointerClick(PointerEventData eventData)
+      {
+          PassEvent(eventData, ExecuteEvents.pointerClickHandler);
+      }
+      //&#x6309;&#x4E0B;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;
+      public void OnPointerDown(PointerEventData eventData)
+      {
+          PassEvent(eventData, ExecuteEvents.pointerDownHandler);
+      }
+      //&#x62AC;&#x8D77;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;
+      public void OnPointerUp(PointerEventData eventData)
+      {
+          PassEvent(eventData, ExecuteEvents.pointerUpHandler);
+      }
+      //&#x62D6;&#x52A8;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;
+      public void OnDrag(PointerEventData eventData)
+      {
+          PassEvent(eventData, ExecuteEvents.dragHandler);
+      }
+      private void PassEvent&lt;T&gt;(PointerEventData data, ExecuteEvents.EventFunction&lt;T&gt; function)
+          where T : IEventSystemHandler
+      {
+          List&lt;RaycastResult&gt; results = new List&lt;RaycastResult&gt;();
+          EventSystem.current.RaycastAll(data, results);
+          GameObject current = data.pointerCurrentRaycast.gameObject;
+          for (int i = 0; i &lt; results.Count; i++)
+          {
+              if (current != results[i].gameObject)
+              {
+                  Debug.Log(&quot;&#x900F;&#x4E0B;&#x53BB;&#x7684;&#x7269;&#x4F53;&#xFF1A;&quot; + results[i].gameObject.name);
+                  ExecuteEvents.Execute(results[i].gameObject, data, function);
+                  //RaycastAll&#x540E;ugui&#x4F1A;&#x81EA;&#x5DF1;&#x6392;&#x5E8F;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x53EA;&#x60F3;&#x54CD;&#x5E94;&#x900F;&#x4E0B;&#x53BB;&#x7684;&#x6700;&#x8FD1;&#x7684;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#xFF0C;&#x8FD9;&#x91CC;ExecuteEvents.Execute&#x540E;&#x76F4;&#x63A5;break&#x5C31;&#x884C;&#x3002;
+              }
+          }
+      }
+  //&#x7ED9;&#x9700;&#x8981;&#x70B9;&#x51FB;&#x7A7F;&#x900F;&#x7684;&#x7C7B;&#x6DFB;&#x52A0;&#x7EE7;&#x627F; 
+  //IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler
 </code></pre>
 </li>
 </ul>
@@ -396,12 +395,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="lan.html" class="navigation navigation-prev " aria-label="Previous page: 关于JS和TS">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="unity.html" class="navigation navigation-next " aria-label="Next page: Unity">
+                <a href="cocoscreator.html" class="navigation navigation-next " aria-label="Next page: Cocos Creator">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -412,7 +411,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"关于JS和TS","level":"1.2","depth":1,"next":{"title":"Unity","level":"1.3","depth":1,"path":"unity.md","ref":"./unity.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"./README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"lan.md","mtime":"2020-12-29T09:41:52.584Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-09T08:34:14.188Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Unity","level":"1.3","depth":1,"next":{"title":"Cocos Creator","level":"1.4","depth":1,"path":"cocoscreator.md","ref":"./cocoscreator.md","articles":[]},"previous":{"title":"关于JS和TS","level":"1.2","depth":1,"path":"lan.md","ref":"./lan.md","articles":[]},"dir":"ltr"},"config":{"plugins":["advanced-emoji","-sharing","-lunr","search-plus","back-to-top-button","hide-published-with"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"advanced-emoji":{"embedEmojis":false},"search-plus":{},"back-to-top-button":{},"hide-published-with":{},"highlight":{},"search":{},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"工作笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"unity.md","mtime":"2023-06-09T08:33:36.348Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-09T08:34:14.188Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
